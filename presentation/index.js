@@ -520,7 +520,7 @@ export default class Presentation extends React.Component {
         <Slide transition={["fade"]} bgColor="primary">
             <Text size={6} textColor="secondary">References & Recommendations</Text>
             <List textSize={4} textColor="tertiary">
-              <ListItem>Reacteurope 2016 talk Dan Schafer</ListItem>
+              <ListItem>React-Europe 2016 talk Dan Schafer</ListItem>
             </List>
         </Slide>
         <Slide transition={["fade"]} bgColor="tertiary">
