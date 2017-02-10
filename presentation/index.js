@@ -11,7 +11,11 @@ import {
   List,
   Quote,
   Slide,
-  Text
+  Text,
+  Image,
+  Appear,
+  CodePane,
+  Layout
 } from "spectacle";
 
 // Import image preloader util
@@ -29,7 +33,8 @@ const images = {
   city: require("../assets/city.jpg"),
   kat: require("../assets/kat.png"),
   logo: require("../assets/formidable-logo.svg"),
-  markdown: require("../assets/markdown.png")
+  markdown: require("../assets/markdown.png"),
+  businessLogic: require("../assets/business_layer.png")
 };
 
 preloader(images);
@@ -48,22 +53,44 @@ export default class Presentation extends React.Component {
   render() {
     return (
       <Deck transition={["zoom", "slide"]} transitionDuration={500} theme={theme}>
-        <Slide transition={["zoom"]} bgColor="primary">
-          <Heading size={1} fit caps lineHeight={1} textColor="secondary">
-            Spectacle Boilerplate
+        <Slide transition={["zoom"]} bgColor="tertiary">
+          <Heading size={1} fit caps lineHeight={2} textColor="primary">
+            Lessons learned from implementing a GraphQL API
           </Heading>
-          <Text margin="10px 0 0" textColor="tertiary" size={1} fit bold>
-            open the presentation/index.js file to get started
-          </Text>
         </Slide>
         <Slide transition={["fade"]} bgColor="tertiary">
-          <Heading size={6} textColor="primary" caps>Typography</Heading>
-          <Heading size={1} textColor="secondary">Heading 1</Heading>
-          <Heading size={2} textColor="secondary">Heading 2</Heading>
-          <Heading size={3} textColor="secondary">Heading 3</Heading>
-          <Heading size={4} textColor="secondary">Heading 4</Heading>
-          <Heading size={5} textColor="secondary">Heading 5</Heading>
-          <Text size={6} textColor="secondary">Standard text</Text>
+          <Heading size={6} textColor="primary" caps>Lesson 1</Heading>
+          <Text size={6} textColor="secondary">Separate GraphQL from your business logic</Text>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Image src={images.businessLogic} />
+          <Cite>graphql.org</Cite>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="tertiary">
+          <Heading size={6} textColor="primary" caps>Lesson 2</Heading>
+          <Text size={6} textColor="secondary">Relay Compliant API</Text>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={6} textColor="secondary" caps>Globally unique opaque ID</Heading>
+          <List>
+            <ListItem>Caching</ListItem>
+            <ListItem>Node interface</ListItem>
+            <Text textSize="1em" textColor="tertiary" margin="20px 0px 0px">ID + Typename = Globally unique ID</Text>
+          </List>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Appear fid="1">
+
+            <Heading size={6} textColor="[ro,a]" caps>Pagination</Heading>
+          </Appear>
+          <Appear fid="2">
+            <CodePane
+              lang="javascript"
+              source={require("raw-loader!../assets/code/graphql-query.example")}
+              margin="20px auto"
+              textSize="0.8em"
+            />
+          </Appear>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary" textColor="tertiary">
           <Heading size={6} textColor="secondary" caps>Standard List</Heading>
