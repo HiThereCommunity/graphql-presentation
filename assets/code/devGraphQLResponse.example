@@ -1,0 +1,24 @@
+{
+  "errors": [
+    {
+      "message": "Internal Error",
+      "locations": [
+        {
+          "line": 29,
+          "column": 22
+        }
+      ],
+      "stack":
+        `Error: Can't access variable data of undefined\n
+        at Joke.gen (/Users/florentijn/Documents/projects/src/models/joke.js:34:11)\n
+        at Object.Argument (/Users/florentijn/Documents/projects/node_modules/graphql/validation/rules/ArgumentsOfCorrectType.js:42:31)\n
+        at Object.enter (/Users/florentijn/Documents/projects/node_modules/graphql/language/visitor.js:296:29)\n
+        at Object.enter (/Users/florentijn/Documents/projects/node_modules/graphql/language/visitor.js:338:25)\n
+        at visit (/Users/florentijn/Documents/projects/node_modules/graphql/language/visitor.js:228:26)\n
+        at visitUsingRules (/Users/florentijn/Documents/projects/node_modules/graphql/validation/validate.js:75:22)\n
+        at validate (/Users/florentijn/Documents/projects/node_modules/graphql/validation/validate.js:60:10)\n
+        at /Users/florentijn/Documents/projects/node_modules/express-graphql/dist/index.js:142:52\n
+        at process._tickDomainCallback (internal/process/next_tick.js:129:7)`
+    }
+  ]
+}

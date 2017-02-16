@@ -1,0 +1,13 @@
+class Joke {
+  static async gen(id: ID) {
+    if (!isNumeric(id)) {
+      //Input error can now be easily distinguished from internal server error.
+      throw new ClientError("id should be numeric, but got: " + id);
+    }
+    else {
+      const joke = await db.jokeEntity.findOne({id});
+      //Internal error since joke is not a function
+      return new Joke(joke());
+    }
+  }
+}

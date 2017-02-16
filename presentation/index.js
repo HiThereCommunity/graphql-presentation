@@ -222,6 +222,110 @@ export default class Presentation extends React.Component {
             <Cite>Author</Cite>
           </BlockQuote>
         </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={6} textColor="secondary" caps>Lesson 6 - Error Handling</Heading>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Appear fid="1">
+            <Heading size={6} textColor="secondary" caps>Create distinction between:</Heading>
+          </Appear>
+          <List textColor="tertiary">
+            <Appear fid="1">
+              <ListItem>User errors and internal errors</ListItem>
+            </Appear>
+            <Appear fid="2">
+              <ListItem>Production and development</ListItem>
+            </Appear>
+          </List>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Appear fid="1">
+            <Heading size={6} textColor="secondary" caps>Development GraphQL Error Response</Heading>
+          </Appear>
+          <Appear fid="2">
+            <CodePane
+              lang="javascript"
+              source={require("raw-loader!../assets/code/devGraphQLResponse.example")}
+              margin="20px auto"
+              textSize="0.6em"
+            />
+          </Appear>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={6} textColor="secondary" caps>Production GraphQL Error Response</Heading>
+          <CodePane
+            lang="javascript"
+            source={require("raw-loader!../assets/code/prodGraphQLResponse.example")}
+            margin="20px auto"
+            textSize="0.6em"
+          />
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Appear fid="1">
+            <Heading size={6} textColor="secondary" caps>User errors versus internal errors</Heading>
+          </Appear>
+          <Appear fid="2">
+            <CodePane
+              lang="javascript"
+              source={require("raw-loader!../assets/code/userVersusInternalError.example")}
+              margin="20px auto"
+              textSize="0.6em"
+            />
+          </Appear>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Appear fid="3">
+            <Heading size={6} textColor="secondary" caps>Introduce Client Error</Heading>
+          </Appear>
+          <Appear fid="4">
+            <CodePane
+              lang="javascript"
+              source={require("raw-loader!../assets/code/clientError.example")}
+              margin="20px auto"
+              textSize="0.6em"
+            />
+          </Appear>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Appear fid="1">
+            <Heading size={6} textColor="secondary" caps>Client Error Usage</Heading>
+          </Appear>
+          <Appear fid="2">
+            <CodePane
+              lang="javascript"
+              source={require("raw-loader!../assets/code/userErrorSolution.example")}
+              margin="20px auto"
+              textSize="0.6em"
+            />
+          </Appear>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={6} textColor="secondary" caps>Add FormatError Function</Heading>
+          <CodePane
+            lang="javascript"
+            source={require("raw-loader!../assets/code/formatErrorSchema.example")}
+            margin="20px auto"
+            textSize="0.6em"
+          />
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={6} textColor="secondary" caps>Error Formatter</Heading>
+          <CodePane
+            lang="javascript"
+            source={require("raw-loader!../assets/code/errorFormatter.example")}
+            margin="20px auto"
+            textSize="0.6em"
+          />
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+            <Heading size={6} textColor="secondary" caps>Advantages</Heading>
+            <List textSize={4} textColor="tertiary">
+              <ListItem>Error strack visible in debug mode</ListItem>
+              <ListItem>No server source code exposed</ListItem>
+              <ListItem>No cryptic internal server errors</ListItem>
+              <ListItem>Descriptive user error messages</ListItem>
+            </List>
+        </Slide>
       </Deck>
     );
   }

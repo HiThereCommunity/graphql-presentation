@@ -1,0 +1,6 @@
+declare class ClientError extends Error {}
+
+export default function ClientError(message) {
+  this.message = message;
+  this.stack = (new Error()).stack;
+}

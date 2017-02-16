@@ -1,0 +1,26 @@
+export default (debugMode: boolean = false): ErrorFormatter => {
+  return (error: GraphQLError) => {
+    let message: string;
+    if (debugMode) {
+      message = error.message;
+    } else {
+      if (error.originalError) {
+        const { originalError } = error;
+        if (originalError instanceof ClientError) {
+          message = originalError.message;
+        } else {
+          message = "Internal Server Error";
+        }
+      } else {
+        message = "Query Error";
+      }
+    }
+
+    return {
+      message,
+      ...(error.locations ? { locations: error.locations } : null),
+      ...(error.path ? { path: error.path } : null),
+      ...(debugMode ? { stack: error.stack } : null)
+    };
+  };
+}
