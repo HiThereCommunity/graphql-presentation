@@ -111,21 +111,12 @@ export default class Presentation extends React.Component {
           />
         </Slide>
         <Slide>
-          <Text> Can include privileges for example </Text>
+          <Text> Single source of truth for authorization </Text>
           <CodePane
             lang="javascript"
             source={require("raw-loader!../assets/code/authorization_advanced.example")}
             margin="20px auto"
-            textSize="0.8em"
-          />
-        </Slide>
-        <Slide>
-          <Text> Single source of truth for authorization </Text>
-          <CodePane
-            lang="javascript"
-            source={require("raw-loader!../assets/code/authorization.example")}
-            margin="20px auto"
-            textSize="0.8em"
+            textSize="0.5em"
           />
         </Slide>
         <Slide>
@@ -134,7 +125,7 @@ export default class Presentation extends React.Component {
             lang="javascript"
             source={require("raw-loader!../assets/code/graphql_endpoint.example")}
             margin="20px auto"
-            textSize="0.8em"
+            textSize="0.5em"
           />
         </Slide>
         <Slide>
@@ -146,9 +137,53 @@ export default class Presentation extends React.Component {
             textSize="0.8em"
           />
         </Slide>
+        <Slide transition={["fade"]} bgColor="primary" textColor="tertiary">
+          <Heading size={6} textColor="secondary" caps>Advantages</Heading>
+          <List>
+            <ListItem>Easy to understand code structure</ListItem>
+            <ListItem>Single source of truth for authorization and validation</ListItem>
+            <ListItem>Reusability logic across multiple schemas</ListItem>
+            <ListItem>DB type is implementation detail</ListItem>
+            <ListItem>Testability</ListItem>
+          </List>
+        </Slide>
         <Slide transition={["fade"]} bgColor="tertiary">
           <Heading size={6} textColor="primary" caps>Lesson 2</Heading>
-          <Text size={6} textColor="secondary">Relay Compliant API</Text>
+          <Text size={6} textColor="secondary">Batching</Text>
+        </Slide>
+        <Slide>
+          <Text>Query</Text>
+          <CodePane
+            source={require("raw-loader!../assets/code/batching_user.example")}
+            margin="20px auto"
+            textSize="0.8em"
+          />
+        </Slide>
+        <Slide>
+          <Text>GraphQL Implementation</Text>
+          <CodePane
+            lang="javascript"
+            source={require("raw-loader!../assets/code/graphQLUser.example")}
+            margin="20px auto"
+            textSize="0.8em"
+          />
+        </Slide>
+        <Slide>
+          <Text>Inefficient implementation</Text>
+          <CodePane
+            lang="javascript"
+            source={require("raw-loader!../assets/code/user_model_no_batching.example")}
+            margin="20px auto"
+            textSize="0.5em"
+          />
+        </Slide>
+        <Slide>
+          <Text>Inefficient implementation</Text>
+          <CodePane
+            source={require("raw-loader!../assets/code/no_batch_database_result.example")}
+            margin="20px auto"
+            textSize="0.5em"
+          />
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
           <Heading size={6} textColor="secondary" caps>Globally unique opaque ID</Heading>
@@ -162,6 +197,15 @@ export default class Presentation extends React.Component {
           <Appear fid="1">
             <Heading size={6} textColor="[ro,a]" caps>Pagination</Heading>
           </Appear>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary" textColor="tertiary">
+          <Heading size={6} textColor="secondary" caps>Standard List</Heading>
+          <List>
+            <ListItem>Item 1</ListItem>
+            <ListItem>Item 2</ListItem>
+            <ListItem>Item 3</ListItem>
+            <ListItem>Item 4</ListItem>
+          </List>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary" textColor="tertiary">
           <Heading size={6} textColor="secondary" caps>Standard List</Heading>

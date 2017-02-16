@@ -1,0 +1,17 @@
+//me
+id: 1
+//bestFriend
+id: 2
+// friends(first: 5)
+friends: limit 5
+id: 2
+id: 3
+id: 4
+id: 5
+id: 6
+// bestFriend
+id: 1
+id: 2
+id: 7
+id: 4
+id: 1
