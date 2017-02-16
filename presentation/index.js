@@ -193,37 +193,43 @@ export default class Presentation extends React.Component {
             <Text textSize="1em" textColor="tertiary" margin="20px 0px 0px">ID + Typename = Globally unique ID</Text>
           </List>
         </Slide>
+        <Slide transition={["fade"]} bgColor="tertiary">
+          <Heading size={6} textColor="primary" caps>Lesson 3</Heading>
+          <Text size={6} textColor="secondary">Caching</Text>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="tertiary">
+          <Heading size={6} textColor="primary" caps>Lesson 4</Heading>
+          <Text size={6} textColor="secondary">Authentication & Authorization</Text>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="tertiary">
+          <Heading size={6} textColor="primary" caps>Lesson 5</Heading>
+          <Text size={6} textColor="secondary">Relay Compliant Schema</Text>
+        </Slide>
         <Slide transition={["fade"]} bgColor="primary">
           <Appear fid="1">
-            <Heading size={6} textColor="[ro,a]" caps>Pagination</Heading>
+            <Text size={6} textColor="secondary">What is it?</Text>
+          </Appear>
+          <Appear fid="2">
+            <Text> A GraphQL schema specification that makes strong assumptions about refetching, pagination, and realizing mutation predictability.</Text>
           </Appear>
         </Slide>
-        <Slide transition={["fade"]} bgColor="primary" textColor="tertiary">
-          <Heading size={6} textColor="secondary" caps>Standard List</Heading>
-          <List>
-            <ListItem>Item 1</ListItem>
-            <ListItem>Item 2</ListItem>
-            <ListItem>Item 3</ListItem>
-            <ListItem>Item 4</ListItem>
-          </List>
-        </Slide>
-        <Slide transition={["fade"]} bgColor="primary" textColor="tertiary">
-          <Heading size={6} textColor="secondary" caps>Standard List</Heading>
-          <List>
-            <ListItem>Item 1</ListItem>
-            <ListItem>Item 2</ListItem>
-            <ListItem>Item 3</ListItem>
-            <ListItem>Item 4</ListItem>
-          </List>
-        </Slide>
-        <Slide transition={["fade"]} bgColor="secondary" textColor="primary">
-          <BlockQuote>
-            <Quote>Example Quote</Quote>
-            <Cite>Author</Cite>
-          </BlockQuote>
+        <Slide transition={["fade"]} bgColor="primary">
+            <Heading size={6} textColor="secondary" caps>Advantages</Heading>
+            <List textSize={4} textColor="tertiary">
+              <ListItem>Enforce globally unique id that is opaque</ListItem>
+              <ListItem>Any resource that belongs to you can be retrieved using a single query</ListItem>
+              <ListItem>Pagination for lists is built in</ListItem>
+              <ListItem>Opinionated about mutations</ListItem>
+              <ListItem>Opportunity to change to Relay if you wish</ListItem>
+            </List>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
-          <Heading size={6} textColor="secondary" caps>Lesson 6 - Error Handling</Heading>
+            <Heading size={6} textColor="secondary" caps>Demo</Heading>
+            <Text>I actually suggest we choose a code snippet/query for each of the advantages, and show it in the slides.</Text>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="tertiary">
+          <Heading size={6} textColor="primary" caps>Lesson 6</Heading>
+          <Text size={6} textColor="secondary">Error Handling</Text>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
           <Appear fid="1">
@@ -325,6 +331,38 @@ export default class Presentation extends React.Component {
               <ListItem>No cryptic internal server errors</ListItem>
               <ListItem>Descriptive user error messages</ListItem>
             </List>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="tertiary">
+          <Heading size={6} textColor="primary" caps>Exciting Community Work</Heading>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+            <Heading size={6} textColor="secondary" caps>Query whitelisting</Heading>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+            <Heading size={6} textColor="secondary" caps>Serverless</Heading>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+            <Heading size={6} textColor="secondary" caps>To SUm Up</Heading>
+            <List textSize={4} textColor="tertiary">
+              <ListItem>Lesson 1: API, Business Logic, Persistance Layer</ListItem>
+              <ListItem>Lesson 2: Authentication & Authorization</ListItem>
+              <ListItem>Lesson 3: Relay compliant schema</ListItem>
+              <ListItem>Lesson 4: Batching</ListItem>
+              <ListItem>Lesson 5: Caching</ListItem>
+              <ListItem>Lesson 6: Error Handling</ListItem>
+            </List>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+            <Heading size={6} textColor="secondary" caps>References & Recommendations</Heading>
+            <List textSize={4} textColor="tertiary">
+              <ListItem>Reacteurope 2016 talk Dan Schafer</ListItem>
+              <ListItem>x</ListItem>
+              <ListItem>x</ListItem>
+              <ListItem>x</ListItem>
+            </List>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="tertiary">
+          <Heading size={6} textColor="primary" caps>Thanks!</Heading>
         </Slide>
       </Deck>
     );
