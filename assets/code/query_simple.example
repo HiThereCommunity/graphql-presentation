@@ -1,6 +1,6 @@
 {
-  todoItem: {
-    type: GraphQLTodoItem,
+  joke: {
+    type: GraphQLJoke,
     args: {
       id: {
         type: new GraphQLNonNull(GraphQLID)
@@ -9,6 +9,6 @@
     resolve: (
       root,
       args: {id: string}
-    ): Promise<?TodoItem> => TodoItem.gen(args.id)
+    ): Promise<?Joke> => Joke.gen(args.id)
   }
 }

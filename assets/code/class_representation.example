@@ -1,17 +1,17 @@
-class TodoItem {
+class Joke {
 
-  static async gen(id: string): Promise<?TodoItem> {
-    const data = await db.todo_item.findById(id);
-    return data ? new TodoItem(data) : null;
+  static async gen(id: string): Promise<?Joke> {
+    const data = await db.joke.findById(id);
+    return data ? new Joke(data) : null;
   }
 
   id: string;
-  title: string;
-  completed: boolean;
+  text: string;
+  funnyLevel: 1 | 2 | 3 | 4;
 
   constructor(data: Object) {
     this.id = data.id;
-    this.title = data.title;
-    this.completed = data.completed;
+    this.text = data.text;
+    this.funnyLevel = data.funnyLevel;
   }
 }

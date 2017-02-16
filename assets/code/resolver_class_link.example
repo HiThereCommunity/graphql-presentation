@@ -1,17 +1,17 @@
-const GraphQLTodoItem = new GraphQLObjectType({
-  name: 'TodoItem',
+const GraphQLJoke = new GraphQLObjectType({
+  name: 'Joke',
   fields: () => ({
     id: {
       type: new GraphQLNonNull(GraphQLID),
-      resolve: (todoItem: TodoItem): ID =>  todoItem.id
+      resolve: (joke: Joke): ID =>  joke.id
     },
-    title: {
+    text: {
       type: new GraphQLNonNull(GraphQLString),
-      resolve: (todoItem: TodoItem): string => todoItem.title
+      resolve: (joke: Joke): string => joke.text
     },
-    completed: {
-      type: new GraphQLNonNull(GraphQLBoolean),
-      resolve: (todoItem: TodoItem): boolean => todoItem.completed
+    funnyLevel: {
+      type: new GraphQLNonNull(GraphQLFunnyLevel),
+      resolve: (joke: Joke): 1|2|3|4 => joke.funnyLevel
     }
   })
 });

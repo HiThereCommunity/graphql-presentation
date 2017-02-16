@@ -1,6 +1,7 @@
 const canYouSeeThisJoke = (viewer: User, data: Object): boolean => {
-  return data.creator == viewer.id;
-};
+  if (!data.private) return true;
+  else return data.creator === viewer.id
+}
 
 class Joke {
   static async gen(viewer: User, id: string): Promise<?Joke> {
@@ -8,5 +9,12 @@ class Joke {
     if (data == null) return null;
     const canSee = canYouSeeThisJoke(viewer, data);
     return canSee ? new Joke(data) : null;
+  }
+  static async all(viewer: User): Promise<Array<Joke>> {
+    const data = await db.joke.findAll({
+      attributes: ["id"]
+    });
+
+    return data.map(entry => Joke.gen(viewer, entry.id));
   }
 }

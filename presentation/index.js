@@ -84,19 +84,37 @@ export default class Presentation extends React.Component {
           />
         </Slide>
         <Slide>
-          <Text> GraphQL: Create TodoItem</Text>
+          <Text> GraphQL: Create Joke</Text>
           <CodePane
             lang="javascript"
-            source={require("raw-loader!../assets/code/query_todo_item.example")}
+            source={require("raw-loader!../assets/code/query_simple.example")}
             margin="20px auto"
             textSize="0.8em"
           />
         </Slide>
         <Slide>
-          <Text> GraphQLTodoItem</Text>
+          <Text> GraphQLJoke</Text>
           <CodePane
             lang="javascript"
             source={require("raw-loader!../assets/code/resolver_class_link.example")}
+            margin="20px auto"
+            textSize="0.8em"
+          />
+        </Slide>
+        <Slide>
+          <Text> Single source of truth for authorization </Text>
+          <CodePane
+            lang="javascript"
+            source={require("raw-loader!../assets/code/authorization.example")}
+            margin="20px auto"
+            textSize="0.8em"
+          />
+        </Slide>
+        <Slide>
+          <Text> Can include privileges for example </Text>
+          <CodePane
+            lang="javascript"
+            source={require("raw-loader!../assets/code/authorization_advanced.example")}
             margin="20px auto"
             textSize="0.8em"
           />
@@ -123,16 +141,7 @@ export default class Presentation extends React.Component {
           <Text> Viewer is now available in GraphQL</Text>
           <CodePane
             lang="javascript"
-            source={require("raw-loader!../assets/code/query_todo_authenticated.example")}
-            margin="20px auto"
-            textSize="0.8em"
-          />
-        </Slide>
-        <Slide>
-          <Text> Single source of truth for authorization </Text>
-          <CodePane
-            lang="javascript"
-            source={require("raw-loader!../assets/code/authorization.example")}
+            source={require("raw-loader!../assets/code/query_authenticated.example")}
             margin="20px auto"
             textSize="0.8em"
           />
@@ -151,16 +160,7 @@ export default class Presentation extends React.Component {
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
           <Appear fid="1">
-
             <Heading size={6} textColor="[ro,a]" caps>Pagination</Heading>
-          </Appear>
-          <Appear fid="2">
-            <CodePane
-              lang="javascript"
-              source={require("raw-loader!../assets/code/graphql-query.example")}
-              margin="20px auto"
-              textSize="0.8em"
-            />
           </Appear>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary" textColor="tertiary">
