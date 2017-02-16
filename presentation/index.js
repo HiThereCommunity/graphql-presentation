@@ -60,11 +60,82 @@ export default class Presentation extends React.Component {
         </Slide>
         <Slide transition={["fade"]} bgColor="tertiary">
           <Heading size={6} textColor="primary" caps>Lesson 1</Heading>
-          <Text size={6} textColor="secondary">Separate GraphQL from your business logic</Text>
+          <Text size={6} textColor="secondary">Separation of concerns</Text>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
           <Image src={images.businessLogic} />
           <Cite>graphql.org</Cite>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Appear fid="1">
+            <Text size={6} textColor="secondary">How to do this?</Text>
+          </Appear>
+          <Appear fid="2">
+            <Text> Model each type in a class</Text>
+          </Appear>
+        </Slide>
+        <Slide>
+          <Text> Business logic Layer</Text>
+          <CodePane
+            lang="javascript"
+            source={require("raw-loader!../assets/code/class_representation.example")}
+            margin="20px auto"
+            textSize="0.8em"
+          />
+        </Slide>
+        <Slide>
+          <Text> GraphQL: Create TodoItem</Text>
+          <CodePane
+            lang="javascript"
+            source={require("raw-loader!../assets/code/query_todo_item.example")}
+            margin="20px auto"
+            textSize="0.8em"
+          />
+        </Slide>
+        <Slide>
+          <Text> GraphQLTodoItem</Text>
+          <CodePane
+            lang="javascript"
+            source={require("raw-loader!../assets/code/resolver_class_link.example")}
+            margin="20px auto"
+            textSize="0.8em"
+          />
+        </Slide>
+        <Slide>
+          <Text> Single source of truth for authorization </Text>
+          <CodePane
+            lang="javascript"
+            source={require("raw-loader!../assets/code/authorization.example")}
+            margin="20px auto"
+            textSize="0.8em"
+          />
+        </Slide>
+        <Slide>
+          <Text> Viewer is contained in context </Text>
+          <CodePane
+            lang="javascript"
+            source={require("raw-loader!../assets/code/graphql_endpoint.example")}
+            margin="20px auto"
+            textSize="0.8em"
+          />
+        </Slide>
+        <Slide>
+          <Text> Viewer is now available in GraphQL</Text>
+          <CodePane
+            lang="javascript"
+            source={require("raw-loader!../assets/code/query_todo_authenticated.example")}
+            margin="20px auto"
+            textSize="0.8em"
+          />
+        </Slide>
+        <Slide>
+          <Text> Single source of truth for authorization </Text>
+          <CodePane
+            lang="javascript"
+            source={require("raw-loader!../assets/code/authorization.example")}
+            margin="20px auto"
+            textSize="0.8em"
+          />
         </Slide>
         <Slide transition={["fade"]} bgColor="tertiary">
           <Heading size={6} textColor="primary" caps>Lesson 2</Heading>

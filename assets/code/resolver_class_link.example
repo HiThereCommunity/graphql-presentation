@@ -1,0 +1,17 @@
+const GraphQLTodoItem = new GraphQLObjectType({
+  name: 'TodoItem',
+  fields: () => ({
+    id: {
+      type: new GraphQLNonNull(GraphQLID),
+      resolve: (todoItem: TodoItem): ID =>  todoItem.id
+    },
+    title: {
+      type: new GraphQLNonNull(GraphQLString),
+      resolve: (todoItem: TodoItem): string => todoItem.title
+    },
+    completed: {
+      type: new GraphQLNonNull(GraphQLBoolean),
+      resolve: (todoItem: TodoItem): boolean => todoItem.completed
+    }
+  })
+});

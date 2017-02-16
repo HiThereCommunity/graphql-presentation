@@ -1,0 +1,14 @@
+const createContext = async (req) =>
+  {
+    const viewer = await User.authenticate(req.token);
+    if (!viewer) throw new Error("Auth failed");
+    return { viewer: user };
+  };
+
+app.use(
+  `/api`,
+  graphqlHTTP(async req => ({
+    schema,
+    context: await createContext(req)
+  }))
+);

@@ -1,0 +1,10 @@
+class TodoItem {
+
+  static async gen(viewer: User, id: string): Promise<?TodoItem> {
+    const data = await db.todo_item.findById(id);
+    if (data == null) return null;
+
+    // A todo item can only be seen by its creator
+    return data.creator == viewer.id ? new TodoItem(data) : null
+  }
+}

@@ -1,0 +1,14 @@
+{
+  todoItem: {
+    type: GraphQLTodoItem,
+    args: {
+      id: {
+        type: new GraphQLNonNull(GraphQLID)
+      }
+    },
+    resolve: (
+      root,
+      args: {id: string}
+    ): Promise<?TodoItem> => TodoItem.gen(args.id)
+  }
+}

@@ -1,0 +1,17 @@
+class TodoItem {
+
+  static async gen(id: string): Promise<?TodoItem> {
+    const data = await db.todo_item.findById(id);
+    return data ? new TodoItem(data) : null;
+  }
+
+  id: string;
+  title: string;
+  completed: boolean;
+
+  constructor(data: Object) {
+    this.id = data.id;
+    this.title = data.title;
+    this.completed = data.completed;
+  }
+}
