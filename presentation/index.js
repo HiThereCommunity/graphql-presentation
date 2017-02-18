@@ -243,13 +243,39 @@ export default class Presentation extends React.Component {
           />
         </Slide>
         <Slide>
-          <Text>Business logic performs input validation.</Text>
+          <Text>Mutation response</Text>
           <CodePane
             lang="javascript"
             source={require("raw-loader!../assets/code/business_logic/mutation_response.example")}
             margin="20px auto"
             textSize="0.5em"
           />
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Text size={6} textColor="secondary">Benefits</Text>
+          <List textColor="tertiary">
+            <Appear fid="1">
+              <ListItem>Single source of truth for enforcing business rules.</ListItem>
+            </Appear>
+            <Appear fid="2">
+              <ListItem>Prevent logic to be spread around independent graphQL resolvers in system.</ListItem>
+            </Appear>
+            <Appear fid="3">
+              <ListItem>Connection to database encoded in logic, not GraphQL resolver.</ListItem>
+            </Appear>
+            <Appear fid="4">
+              <ListItem>Allows DB type to be changed easily.</ListItem>
+            </Appear>
+            <Appear fid="5">
+              <ListItem>Allows API protocol to be changed easily.</ListItem>
+            </Appear>
+            <Appear fid="6">
+              <ListItem>Testability</ListItem>
+            </Appear>
+            <Appear fid="7">
+              <ListItem>Reuse logic across multiple schemas</ListItem>
+            </Appear>
+          </List>
         </Slide>
         <Slide>
           <Text> Single source of truth for authorization</Text>
