@@ -1,0 +1,19 @@
+//GraphQL query:
+query {
+  viewer {
+    id
+    jokes {
+      id
+    }
+  }
+}
+
+//Result:
+{
+  "viewer": {
+    "id": "Sh3Ee!p=",
+    "jokes": [{
+      "id": "m0=nK3Y!"
+    }]
+  }
+}

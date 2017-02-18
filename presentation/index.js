@@ -62,12 +62,19 @@ export default class Presentation extends React.Component {
         <Slide transition={["fade"]} bgColor="tertiary">
           <Heading size={6} textColor="primary" caps>Hi There</Heading>
           <Text size={4} margin={30} textColor="secondary">Striving for innovation in the insurance industry.</Text>
-          <Link href="http://hi-there.community">"http://hi-there.community"</Link>
+          <Link href="http://hi-there.community">hi-there.community</Link>
           <Heading size={6} textColor="primary" caps>Dirk-Jan</Heading>
           <Text size={4} margin={30} textColor="secondary">Dirk is a Software Engineer with a focus on Javascript who gets (way too) excited about writing stable and well tested code. GraphQL fan.</Text>
           <Heading size={6} textColor="primary" caps>Florentijn</Heading>
           <Text size={4} margin={30} textColor="secondary">GraphQL enthusiast. Focusing on Javascript and realizing highly available, easy to maintain solutions on AWS. I like giving high fives.</Text>
-
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+            <Text size={6} textColor="secondary">Agenda</Text>
+            <List>
+              <ListItem>What is GraphQL?</ListItem>
+              <ListItem>Why GraphQL?</ListItem>
+              <ListItem>Lessons Learned from implementing a GraphQL API by a joke machine</ListItem>
+            </List>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
           <Appear fid="1">
@@ -76,6 +83,10 @@ export default class Presentation extends React.Component {
           <Appear fid="2">
             <Text>GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data</Text>
           </Appear>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+            <Text size={6} textColor="secondary">GraphQL Example</Text>
+            <Text>Add hello world query here</Text>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
           <Appear fid="1">
@@ -430,21 +441,6 @@ export default class Presentation extends React.Component {
             textSize="0.5em"
           />
         </Slide>
-        <Slide>
-          <List>
-            <ListItem>Caching</ListItem>
-            <ListItem>Node interface</ListItem>
-            <Text textSize="1em" textColor="tertiary" margin="20px 0px 0px">ID + Typename = Globally unique ID</Text>
-          </List>
-        </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-          <Heading size={6} textColor="secondary" caps>Globally unique opaque ID</Heading>
-          <List>
-            <ListItem>Caching</ListItem>
-            <ListItem>Node interface</ListItem>
-            <Text textSize="1em" textColor="tertiary" margin="20px 0px 0px">ID + Typename = Globally unique ID</Text>
-          </List>
-        </Slide>
         <Slide transition={["fade"]} bgColor="tertiary">
           <Heading size={6} textColor="primary" caps>Lesson 3</Heading>
           <Text size={6} textColor="secondary">Caching</Text>
@@ -462,11 +458,46 @@ export default class Presentation extends React.Component {
             <Text size={6} textColor="secondary">What is it?</Text>
           </Appear>
           <Appear fid="2">
-            <Text> A GraphQL schema specification that makes strong assumptions about refetching, pagination, and realizing mutation predictability.</Text>
+            <Text>A GraphQL schema specification that makes strong assumptions about refetching, pagination, and realizing mutation predictability.</Text>
           </Appear>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
-          <Heading size={6} textColor="secondary" caps>Retrieve resource using single query</Heading>
+          <Text size={6} textColor="secondary">Refetching</Text>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Text size={6} textColor="secondary">Joke Query</Text>
+          <CodePane
+            lang="javascript"
+            source={require("raw-loader!../assets/code/relay/duplicateIdExample.example")}
+            margin="20px auto"
+            textSize="0.6em"
+          />
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Text size={6} textColor="secondary">Solution</Text>
+          <Text size={6} textColor="secondary">Create globally unique opaque ids</Text>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Text size={6} textColor="secondary">Joke Query Unique Ids</Text>
+          <CodePane
+            lang="javascript"
+            source={require("raw-loader!../assets/code/relay/duplicateIdSolution.example")}
+            margin="20px auto"
+            textSize="0.6em"
+          />
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Text size={6} textColor="secondary">The Result</Text>
+          <List textSize={4} textColor="secondary">
+            <ListItem>Caching becomes simple</ListItem>
+            <ListItem>Database assumptions opaque to client</ListItem>
+          </List>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Text size={6} textColor="secondary">... and every object can easily be refetched</Text>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Text size={6} textColor="secondary">Retrieve resource using single query</Text>
           <CodePane
             lang="javascript"
             source={require("raw-loader!../assets/code/relay/nodeQuery.example")}
@@ -475,7 +506,7 @@ export default class Presentation extends React.Component {
           />
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
-          <Heading size={5} textColor="secondary" caps>Globally unique opaque id.</Heading>
+          <Text size={6} textColor="secondary">How would you implement this?</Text>
           <CodePane
             lang="javascript"
             source={require("raw-loader!../assets/code/relay/uniqueOpaqueId.example")}
@@ -484,7 +515,26 @@ export default class Presentation extends React.Component {
           />
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
-          <Heading size={6} textColor="secondary" caps>Pagination built in using connection approach</Heading>
+          <Text size={5} textColor="secondary">How would you implement this?</Text>
+          <CodePane
+            lang="javascript"
+            source={require("raw-loader!../assets/code/relay/uniqueOpaqueId2.example")}
+            margin="20px auto"
+            textSize="0.6em"
+          />
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Text size={6} textColor="secondary">Pagination</Text>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Text size={6} textColor="secondary">Why Pagination?</Text>
+          <List textSize={4} textColor="secondary">
+            <ListItem>Prevents app from being slow</ListItem>
+            <ListItem>Improves back-end performance</ListItem>
+          </List>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Text size={6} textColor="secondary">Pagination done right using connection approach</Text>
           <CodePane
             lang="javascript"
             source={require("raw-loader!../assets/code/relay/connectionQuery.example")}
@@ -493,7 +543,15 @@ export default class Presentation extends React.Component {
           />
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
-          <Heading size={6} textColor="secondary" caps>Opinionated about mutations</Heading>
+          <Text size={6} textColor="secondary">Mutation Predictability</Text>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={6} textColor="secondary" caps>Possible problems with mutations:</Heading>
+          <List textSize={4} textColor="secondary">
+            <ListItem>What to do when there exists no response type?</ListItem>
+            <ListItem>How to identify simultaneous mutations if they were parsed by the same mechanism?</ListItem>
+            <ListItem>you have to write the same logic multiple times to parse mutation results.</ListItem>
+          </List>
           <CodePane
             lang="javascript"
             source={require("raw-loader!../assets/code/relay/relayMutation.example")}
@@ -502,7 +560,24 @@ export default class Presentation extends React.Component {
           />
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
-          <Heading size={6} textColor="secondary" caps>Opportunity to change to Relay if you wish</Heading>
+          <Text size={6} textColor="secondary">Opinionated about mutations</Text>
+          <CodePane
+            lang="javascript"
+            source={require("raw-loader!../assets/code/relay/relayMutation.example")}
+            margin="20px auto"
+            textSize="0.6em"
+          />
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+            <Text size={6} textColor="secondary">Overview</Text>
+            <List textSize={4} textColor="secondary">
+              <ListItem>Consistent naming conventions and input conventions everywhere</ListItem>
+              <ListItem>Easily identify each mutation</ListItem>
+              <ListItem>Mutation id causes to always have a return type</ListItem>
+            </List>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={6} textColor="secondary">Opportunity to change to Relay if you wish</Heading>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
             <Heading size={6} textColor="secondary" caps>Overview</Heading>

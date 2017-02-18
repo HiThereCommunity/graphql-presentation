@@ -1,5 +1,5 @@
 query {
-  node(id: "WQs!3sdAs=6") {
+  node(id: "E4sT3r!39g=") {
     id
     ... on Joke {
       title

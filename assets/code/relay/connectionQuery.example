@@ -1,14 +1,14 @@
 query {
   user {
-    jokes(first: 10, after: "opaqueCursor") {
+    jokes(first: 10 /*The offset*/, after: "TUr71e=!" /*Curser*/) {
       edges {
-        cursor
+        cursor //Curser
         node {
           title
           funnyness
         }
       }
-      pageInfo {
+      pageInfo { //pageInfo contains info about whether there exist more edges
         hasNextPage
       }
     }
