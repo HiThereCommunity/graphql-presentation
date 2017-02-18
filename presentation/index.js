@@ -9,6 +9,7 @@ import {
   Heading,
   ListItem,
   List,
+  Link,
   Quote,
   Slide,
   Text,
@@ -57,6 +58,40 @@ export default class Presentation extends React.Component {
           <Heading size={1} fit caps lineHeight={2} textColor="primary">
             Lessons learned from implementing a GraphQL API
           </Heading>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="tertiary">
+          <Heading size={6} textColor="primary" caps>Hi There</Heading>
+          <Text size={4} margin={30} textColor="secondary">Striving for innovation in the insurance industry.</Text>
+          <Link href="http://hi-there.community">"http://hi-there.community"</Link>
+          <Heading size={6} textColor="primary" caps>Dirk-Jan</Heading>
+          <Text size={4} margin={30} textColor="secondary">Dirk is a Software Engineer with a focus on Javascript who gets (way too) excited about writing stable and well tested code. GraphQL fan.</Text>
+          <Heading size={6} textColor="primary" caps>Florentijn</Heading>
+          <Text size={4} margin={30} textColor="secondary">GraphQL enthusiast. Focusing on Javascript and realizing highly available, easy to maintain solutions on AWS. I like giving high fives.</Text>
+
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Appear fid="1">
+            <Text size={6} textColor="secondary">What is GraphQL?</Text>
+          </Appear>
+          <Appear fid="2">
+            <Text>GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data</Text>
+          </Appear>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Appear fid="1">
+            <Text size={6} textColor="secondary">Why we chose GraphQL over REST?</Text>
+          </Appear>
+          <Appear fid="2">
+          <List>
+            <ListItem>Client defines requirements, not server</ListItem>
+            <ListItem>Self documenting</ListItem>
+            <ListItem>Versioning</ListItem>
+            <ListItem>Input validation</ListItem>
+            <ListItem>GraphiQL</ListItem>
+            <ListItem>Developer tools</ListItem>
+            <ListItem>Single endpoint</ListItem>
+          </List>
+          </Appear>
         </Slide>
         <Slide transition={["fade"]} bgColor="tertiary">
           <Heading size={6} textColor="primary" caps>Lesson 1</Heading>
@@ -214,7 +249,46 @@ export default class Presentation extends React.Component {
           </Appear>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
-            <Heading size={6} textColor="secondary" caps>Advantages</Heading>
+          <Heading size={6} textColor="secondary" caps>Retrieve resource using single query</Heading>
+          <CodePane
+            lang="javascript"
+            source={require("raw-loader!../assets/code/relay/nodeQuery.example")}
+            margin="20px auto"
+            textSize="0.6em"
+          />
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={5} textColor="secondary" caps>Globally unique opaque id.</Heading>
+          <CodePane
+            lang="javascript"
+            source={require("raw-loader!../assets/code/relay/uniqueOpaqueId.example")}
+            margin="20px auto"
+            textSize="0.6em"
+          />
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={6} textColor="secondary" caps>Pagination built in using connection approach</Heading>
+          <CodePane
+            lang="javascript"
+            source={require("raw-loader!../assets/code/relay/connectionQuery.example")}
+            margin="20px auto"
+            textSize="0.6em"
+          />
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={6} textColor="secondary" caps>Opinionated about mutations</Heading>
+          <CodePane
+            lang="javascript"
+            source={require("raw-loader!../assets/code/relay/relayMutation.example")}
+            margin="20px auto"
+            textSize="0.6em"
+          />
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={6} textColor="secondary" caps>Opportunity to change to Relay if you wish</Heading>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+            <Heading size={6} textColor="secondary" caps>Overview</Heading>
             <List textSize={4} textColor="tertiary">
               <ListItem>Enforce globally unique id that is opaque</ListItem>
               <ListItem>Any resource that belongs to you can be retrieved using a single query</ListItem>
@@ -222,10 +296,6 @@ export default class Presentation extends React.Component {
               <ListItem>Opinionated about mutations</ListItem>
               <ListItem>Opportunity to change to Relay if you wish</ListItem>
             </List>
-        </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-            <Heading size={6} textColor="secondary" caps>Demo</Heading>
-            <Text>I actually suggest we choose a code snippet/query for each of the advantages, and show it in the slides.</Text>
         </Slide>
         <Slide transition={["fade"]} bgColor="tertiary">
           <Heading size={6} textColor="primary" caps>Lesson 6</Heading>
@@ -251,7 +321,7 @@ export default class Presentation extends React.Component {
           <Appear fid="2">
             <CodePane
               lang="javascript"
-              source={require("raw-loader!../assets/code/devGraphQLResponse.example")}
+              source={require("raw-loader!../assets/code/errorHandling/devGraphQLResponse.example")}
               margin="20px auto"
               textSize="0.6em"
             />
@@ -261,7 +331,7 @@ export default class Presentation extends React.Component {
           <Heading size={6} textColor="secondary" caps>Production GraphQL Error Response</Heading>
           <CodePane
             lang="javascript"
-            source={require("raw-loader!../assets/code/prodGraphQLResponse.example")}
+            source={require("raw-loader!../assets/code/errorHandling/prodGraphQLResponse.example")}
             margin="20px auto"
             textSize="0.6em"
           />
@@ -273,7 +343,7 @@ export default class Presentation extends React.Component {
           <Appear fid="2">
             <CodePane
               lang="javascript"
-              source={require("raw-loader!../assets/code/userVersusInternalError.example")}
+              source={require("raw-loader!../assets/code/errorHandling/userVersusInternalError.example")}
               margin="20px auto"
               textSize="0.6em"
             />
@@ -286,7 +356,7 @@ export default class Presentation extends React.Component {
           <Appear fid="4">
             <CodePane
               lang="javascript"
-              source={require("raw-loader!../assets/code/clientError.example")}
+              source={require("raw-loader!../assets/code/errorHandling/clientError.example")}
               margin="20px auto"
               textSize="0.6em"
             />
@@ -299,7 +369,7 @@ export default class Presentation extends React.Component {
           <Appear fid="2">
             <CodePane
               lang="javascript"
-              source={require("raw-loader!../assets/code/userErrorSolution.example")}
+              source={require("raw-loader!../assets/code/errorHandling/userErrorSolution.example")}
               margin="20px auto"
               textSize="0.6em"
             />
@@ -309,7 +379,7 @@ export default class Presentation extends React.Component {
           <Heading size={6} textColor="secondary" caps>Add FormatError Function</Heading>
           <CodePane
             lang="javascript"
-            source={require("raw-loader!../assets/code/formatErrorSchema.example")}
+            source={require("raw-loader!../assets/code/errorHandling/formatErrorSchema.example")}
             margin="20px auto"
             textSize="0.6em"
           />
@@ -318,7 +388,7 @@ export default class Presentation extends React.Component {
           <Heading size={6} textColor="secondary" caps>Error Formatter</Heading>
           <CodePane
             lang="javascript"
-            source={require("raw-loader!../assets/code/errorFormatter.example")}
+            source={require("raw-loader!../assets/code/errorHandling/errorFormatter.example")}
             margin="20px auto"
             textSize="0.6em"
           />
@@ -326,7 +396,7 @@ export default class Presentation extends React.Component {
         <Slide transition={["fade"]} bgColor="primary">
             <Heading size={6} textColor="secondary" caps>Advantages</Heading>
             <List textSize={4} textColor="tertiary">
-              <ListItem>Error strack visible in debug mode</ListItem>
+              <ListItem>Error stack visible in debug mode</ListItem>
               <ListItem>No server source code exposed</ListItem>
               <ListItem>No cryptic internal server errors</ListItem>
               <ListItem>Descriptive user error messages</ListItem>

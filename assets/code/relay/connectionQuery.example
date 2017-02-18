@@ -1,0 +1,16 @@
+query {
+  user {
+    jokes(first: 10, after: "opaqueCursor") {
+      edges {
+        cursor
+        node {
+          title
+          funnyness
+        }
+      }
+      pageInfo {
+        hasNextPage
+      }
+    }
+  }
+}

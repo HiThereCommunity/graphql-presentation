@@ -1,0 +1,9 @@
+query {
+  node(id: "WQs!3sdAs=6") {
+    id
+    ... on Joke {
+      title
+      funnyness
+    }
+  }
+}

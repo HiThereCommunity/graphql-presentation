@@ -1,0 +1,19 @@
+import { nodeDefinitions, fromGlobalId, globalIdField } from "graphql-relay";
+
+const { nodeInterface, nodesField, nodeField } = nodeDefinitions(
+  (globalId,{user}: Context) => {
+    const { type, id } = fromGlobalId(globalId);
+    
+    if (type === "Joke") return Joke.gen(id, user);
+    else if (type === "User") return User.gen(id, user);
+    else return null;
+  });
+
+const jokeType = new GraphQLObjectType({
+  name: 'Joke',
+  fields: () => ({
+    id: globalIdField(),
+  }),
+  isTypeOf: obj => obj instanceof Joke, // Relay will use this
+  interfaces: [nodeInterface] // Relay will use this
+});
