@@ -1,7 +1,7 @@
 {
   "errors": [
     {
-      "message": "Internal Error",
+      "message": "This is an insanely weird bug. The whole planet will now be destroyed.",
       "locations": [
         {
           "line": 29,
@@ -9,7 +9,7 @@
         }
       ],
       "stack":
-        `Error: Can't access variable data of undefined\n
+        `Error: This is an insanely weird bug. The whole planet will now be destroyed.\n
         at Joke.gen (/Users/florentijn/Documents/projects/src/models/joke.js:34:11)\n
         at Object.Argument (/Users/florentijn/Documents/projects/node_modules/graphql/validation/rules/ArgumentsOfCorrectType.js:42:31)\n
         at Object.enter (/Users/florentijn/Documents/projects/node_modules/graphql/language/visitor.js:296:29)\n

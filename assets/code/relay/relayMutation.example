@@ -11,7 +11,8 @@ mutation AddJoke {
 {
   "input": {
     "clientMutationId": "549b5e7c-0516-4fc9-8944-125401211590",
-    "text": "Bananas are yellow!",
+    "text": `What does a developer say when you need to jump away from
+    a car? Reaact!!`,
     "funnyness": 9000
   }
 }

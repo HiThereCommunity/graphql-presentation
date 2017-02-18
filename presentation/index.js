@@ -527,8 +527,18 @@ export default class Presentation extends React.Component {
           <Text size={6} textColor="secondary">Pagination</Text>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
+          <Text size={6} textColor="secondary">List Example</Text>
+          <CodePane
+            lang="javascript"
+            source={require("raw-loader!../assets/code/relay/listResponse.example")}
+            margin="20px auto"
+            textSize="0.6em"
+          />
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
           <Text size={6} textColor="secondary">Why Pagination?</Text>
           <List textSize={4} textColor="secondary">
+            <ListItem>More fine-grained control</ListItem>
             <ListItem>Prevents app from being slow</ListItem>
             <ListItem>Improves back-end performance</ListItem>
           </List>
@@ -543,15 +553,13 @@ export default class Presentation extends React.Component {
           />
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
-          <Text size={6} textColor="secondary">Mutation Predictability</Text>
+          <Text size={6} textColor="secondary">Mutations</Text>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
-          <Heading size={6} textColor="secondary" caps>Possible problems with mutations:</Heading>
-          <List textSize={4} textColor="secondary">
-            <ListItem>What to do when there exists no response type?</ListItem>
-            <ListItem>How to identify simultaneous mutations if they were parsed by the same mechanism?</ListItem>
-            <ListItem>you have to write the same logic multiple times to parse mutation results.</ListItem>
-          </List>
+          <Text size={6} textColor="secondary">Opinionated unified way for implementing mutations</Text>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Text size={6} textColor="secondary">Example Mutation</Text>
           <CodePane
             lang="javascript"
             source={require("raw-loader!../assets/code/relay/relayMutation.example")}
@@ -560,28 +568,20 @@ export default class Presentation extends React.Component {
           />
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
-          <Text size={6} textColor="secondary">Opinionated about mutations</Text>
-          <CodePane
-            lang="javascript"
-            source={require("raw-loader!../assets/code/relay/relayMutation.example")}
-            margin="20px auto"
-            textSize="0.6em"
-          />
+            <Text size={6} textColor="secondary">Properties</Text>
+            <List textSize={4} textColor="secondary">
+              <ListItem>Mutations are root fields on the mutation type </ListItem>
+              <ListItem>Consistent naming conventions and input conventions</ListItem>
+              <ListItem>Both input and output contain a ClientMutationId</ListItem>
+              <ListItem>Convention: start field names with a verb</ListItem>
+            </List>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Text size={6} textColor="secondary">Opportunity to change to Relay if you wish</Text>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
             <Text size={6} textColor="secondary">Overview</Text>
             <List textSize={4} textColor="secondary">
-              <ListItem>Consistent naming conventions and input conventions everywhere</ListItem>
-              <ListItem>Easily identify each mutation</ListItem>
-              <ListItem>Mutation id causes to always have a return type</ListItem>
-            </List>
-        </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-          <Heading size={6} textColor="secondary">Opportunity to change to Relay if you wish</Heading>
-        </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-            <Heading size={6} textColor="secondary" caps>Overview</Heading>
-            <List textSize={4} textColor="tertiary">
               <ListItem>Enforce globally unique id that is opaque</ListItem>
               <ListItem>Any resource that belongs to you can be retrieved using a single query</ListItem>
               <ListItem>Pagination for lists is built in</ListItem>
