@@ -1,0 +1,22 @@
+
+const createContext = async (req) =>
+  {
+    const userLoader = new DataLoader(ids => batchGetUsers(ids));
+
+    const viewer = await User.authenticate(req.token, userLoader);
+    if (!viewer) throw new Error("Auth failed");
+    return {
+      viewer,
+      loaders: {
+        user: userLoader
+      }
+    };
+  };
+
+app.use(
+  `/api`,
+  graphqlHTTP(async req => ({
+    schema,
+    context: await createContext(req)
+  }))
+);

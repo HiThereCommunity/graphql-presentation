@@ -1,7 +1,8 @@
 class User {
-  static async gen(viewer: User, id: string): Promise<?User> {
-    const data = db.user.findById(id);
+  static async gen(viewer: User, id: string, loader: DataLoader<string, ?Object>): Promise<?User> {
+    const data = loader.load(id);
     if (data == null) return null;
+    // Add some authorization logic
     const canSee = checkCanSee(viewer, id);
     return canSee ? new User(data) : null;
   }
@@ -12,7 +13,7 @@ class User {
     this.bestFriend = data.bestFriend;
   }
 
-  async getFriends(first: number) {
+  async getFriends(viewer: User, first: number, loader: DataLoader<string, ?Object>): Promise<Array<User>> {
     const data = await db.friends.findAll({
       where: {
         from_id: this.id
@@ -21,6 +22,6 @@ class User {
       attributes: ["to_id"]
     });
 
-    return data.map(entry => User.gen(this, entry.to_id));
+    return data.map(entry => User.gen(viewer, entry.to_id, loader));
   }
 }

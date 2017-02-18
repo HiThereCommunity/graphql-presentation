@@ -113,43 +113,34 @@ export default class Presentation extends React.Component {
           <Text> Business logic Layer</Text>
           <CodePane
             lang="javascript"
-            source={require("raw-loader!../assets/code/class_representation.example")}
+            source={require("raw-loader!../assets/code/business_logic/class_representation.example")}
             margin="20px auto"
-            textSize="0.8em"
+            textSize="0.5em"
           />
         </Slide>
         <Slide>
-          <Text> GraphQL: Create Joke</Text>
+          <Text> GraphQL: Retrieve Joke</Text>
           <CodePane
             lang="javascript"
-            source={require("raw-loader!../assets/code/query_simple.example")}
+            source={require("raw-loader!../assets/code/business_logic/query_simple.example")}
             margin="20px auto"
-            textSize="0.8em"
+            textSize="0.5em"
           />
         </Slide>
         <Slide>
           <Text> GraphQLJoke</Text>
           <CodePane
             lang="javascript"
-            source={require("raw-loader!../assets/code/resolver_class_link.example")}
+            source={require("raw-loader!../assets/code/business_logic/resolver_class_link.example")}
             margin="20px auto"
-            textSize="0.8em"
+            textSize="0.5em"
           />
         </Slide>
         <Slide>
           <Text> Single source of truth for authorization </Text>
           <CodePane
             lang="javascript"
-            source={require("raw-loader!../assets/code/authorization.example")}
-            margin="20px auto"
-            textSize="0.8em"
-          />
-        </Slide>
-        <Slide>
-          <Text> Single source of truth for authorization </Text>
-          <CodePane
-            lang="javascript"
-            source={require("raw-loader!../assets/code/authorization_advanced.example")}
+            source={require("raw-loader!../assets/code/business_logic/authorization.example")}
             margin="20px auto"
             textSize="0.5em"
           />
@@ -158,7 +149,7 @@ export default class Presentation extends React.Component {
           <Text> Viewer is contained in context </Text>
           <CodePane
             lang="javascript"
-            source={require("raw-loader!../assets/code/graphql_endpoint.example")}
+            source={require("raw-loader!../assets/code/business_logic/graphql_endpoint.example")}
             margin="20px auto"
             textSize="0.5em"
           />
@@ -167,9 +158,9 @@ export default class Presentation extends React.Component {
           <Text> Viewer is now available in GraphQL</Text>
           <CodePane
             lang="javascript"
-            source={require("raw-loader!../assets/code/query_authenticated.example")}
+            source={require("raw-loader!../assets/code/business_logic/query_authenticated.example")}
             margin="20px auto"
-            textSize="0.8em"
+            textSize="0.5em"
           />
         </Slide>
         <Slide transition={["fade"]} bgColor="primary" textColor="tertiary">
@@ -189,25 +180,25 @@ export default class Presentation extends React.Component {
         <Slide>
           <Text>Query</Text>
           <CodePane
-            source={require("raw-loader!../assets/code/batching_user.example")}
+            source={require("raw-loader!../assets/code/batching/batching_user.example")}
             margin="20px auto"
-            textSize="0.8em"
+            textSize="0.5em"
           />
         </Slide>
         <Slide>
           <Text>GraphQL Implementation</Text>
           <CodePane
             lang="javascript"
-            source={require("raw-loader!../assets/code/graphQLUser.example")}
+            source={require("raw-loader!../assets/code/batching/graphQLUser.example")}
             margin="20px auto"
-            textSize="0.8em"
+            textSize="0.5em"
           />
         </Slide>
         <Slide>
           <Text>Inefficient implementation</Text>
           <CodePane
             lang="javascript"
-            source={require("raw-loader!../assets/code/user_model_no_batching.example")}
+            source={require("raw-loader!../assets/code/batching/user_model_no_batching.example")}
             margin="20px auto"
             textSize="0.5em"
           />
@@ -215,10 +206,86 @@ export default class Presentation extends React.Component {
         <Slide>
           <Text>Inefficient implementation</Text>
           <CodePane
-            source={require("raw-loader!../assets/code/no_batch_database_result.example")}
+            source={require("raw-loader!../assets/code/batching/no_batch_database_result.example")}
             margin="20px auto"
             textSize="0.5em"
           />
+        </Slide>
+        <Slide>
+          <Text>Solution: DataLoader.</Text>
+          <Text>Utility used for batching and caching data requests to a
+                database or some other data source.
+          </Text>
+          <Text>This is useful in graphql where many separate
+                resolver functions make requests to the database...
+          </Text>
+        </Slide>
+        <Slide>
+          <Text>How does it work?</Text>
+          <CodePane
+            lang="javascript"
+            source={require("raw-loader!../assets/code/batching/dataloader_init.example")}
+            margin="20px auto"
+            textSize="0.5em"
+          />
+        </Slide>
+        <Slide>
+          <Text>Batching and Caching</Text>
+          <CodePane
+            lang="javascript"
+            source={require("raw-loader!../assets/code/batching/dataloader_example.example")}
+            margin="20px auto"
+            textSize="0.5em"
+          />
+        </Slide>
+        <Slide>
+          <Text>New Dataloader per request</Text>
+          <Text> Cache only servers purpose of not repeatedly loding the same data
+                 in the context of a single request.
+          </Text>
+        </Slide>
+        <Slide>
+          <Text>Pass dataloaders in the context</Text>
+          <CodePane
+            lang="javascript"
+            source={require("raw-loader!../assets/code/batching/loader_per_request.example")}
+            margin="20px auto"
+            textSize="0.5em"
+          />
+        </Slide>
+        <Slide>
+          <Text>Pass them through to the business logic</Text>
+          <CodePane
+            lang="javascript"
+            source={require("raw-loader!../assets/code/batching/graphQLUserLoader.example")}
+            margin="20px auto"
+            textSize="0.5em"
+          />
+        </Slide>
+        <Slide>
+          <Text>Efficient implementation</Text>
+          <CodePane
+            lang="javascript"
+            source={require("raw-loader!../assets/code/batching/user_model_batching.example")}
+            margin="20px auto"
+            textSize="0.5em"
+          />
+        </Slide>
+        <Slide>
+          <Text>Efficient implementation</Text>
+          <CodePane
+            lang="javascript"
+            source={require("raw-loader!../assets/code/batching/batch_database_result.example")}
+            margin="20px auto"
+            textSize="0.5em"
+          />
+        </Slide>
+        <Slide>
+          <List>
+            <ListItem>Caching</ListItem>
+            <ListItem>Node interface</ListItem>
+            <Text textSize="1em" textColor="tertiary" margin="20px 0px 0px">ID + Typename = Globally unique ID</Text>
+          </List>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
           <Heading size={6} textColor="secondary" caps>Globally unique opaque ID</Heading>

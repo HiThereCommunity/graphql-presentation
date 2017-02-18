@@ -1,0 +1,8 @@
+
+const userLoader = new DataLoader(ids => batchGetUsers(ids));
+
+await userLoader.load(1)
+await userLoader.load(2)
+await userLoader.load(1)
+
+//SELECT * FROM user WHERE id IN (1, 2)

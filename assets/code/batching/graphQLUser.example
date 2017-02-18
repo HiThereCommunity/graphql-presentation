@@ -1,0 +1,17 @@
+const GraphQLUser = new GraphQLObjectType({
+  name: 'User',
+  fields: () => ({
+    name: { type: GraphQLString },
+    bestFriend: {
+      type: GraphQLUser,
+      resolve: (user: User, _, context) => User.gen(context.viewer, user.bestFriend)
+    },
+    friends: {
+      args: {
+        first: { type: GraphQLInt }
+      },
+      type: new GraphQLList(GraphQLUser),
+      resolve: (user, { first }, context) => user.getFriends(context.viewer, first)
+    }
+  })
+})

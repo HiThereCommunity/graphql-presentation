@@ -1,0 +1,10 @@
+import DataLoader from "dataloader";
+
+const userLoader = new DataLoader(ids => batchGetUsers(ids));
+
+const batchGetUsers = (ids) => db.user.findAll({
+  where: {
+    id: { $in: ids }
+  }
+})
+.then(normalizeDbResults)
