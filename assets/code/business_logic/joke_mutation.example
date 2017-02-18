@@ -1,0 +1,10 @@
+mutation {
+  createJoke(
+    text: "Where do animals go when their tails fall off? The retail store.",
+    funnyLevel: 10
+  ) {
+    id
+    text
+    funnyLevel
+  }
+}

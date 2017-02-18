@@ -131,7 +131,7 @@ export default class Presentation extends React.Component {
               <ListItem>Responsible for low level database details</ListItem>
             </Appear>
             <Appear fid="2">
-              <ListItem>Handles connections, timeouts...</ListItem>
+              <ListItem>Handles connections, database errors</ListItem>
             </Appear>
             <Appear fid="3">
               <ListItem>Defines the database schema</ListItem>
@@ -217,9 +217,36 @@ export default class Presentation extends React.Component {
           />
         </Slide>
         <Slide>
-          <Text>Example 1: Query Joke</Text>
+          <Text>Example 2: Mutation to create a joke</Text>
           <CodePane
-            source={require("raw-loader!../assets/code/business_logic/joke_query.example")}
+            source={require("raw-loader!../assets/code/business_logic/joke_mutation.example")}
+            margin="20px auto"
+            textSize="0.5em"
+          />
+        </Slide>
+        <Slide>
+          <Text>Implementation in GraphQL</Text>
+          <CodePane
+            lang="javascript"
+            source={require("raw-loader!../assets/code/business_logic/mutation_simple.example")}
+            margin="20px auto"
+            textSize="0.5em"
+          />
+        </Slide>
+        <Slide>
+          <Text>Business logic performs input validation.</Text>
+          <CodePane
+            lang="javascript"
+            source={require("raw-loader!../assets/code/business_logic/logic_mutation.example")}
+            margin="20px auto"
+            textSize="0.5em"
+          />
+        </Slide>
+        <Slide>
+          <Text>Business logic performs input validation.</Text>
+          <CodePane
+            lang="javascript"
+            source={require("raw-loader!../assets/code/business_logic/mutation_response.example")}
             margin="20px auto"
             textSize="0.5em"
           />

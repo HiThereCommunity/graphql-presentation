@@ -1,0 +1,12 @@
+{
+    type: new GraphQLNonNull(GraphQLJoke),
+    description: "Create a new joke.",
+    args: {
+        text: { type: new GraphQLNonNull(GraphQLString) },
+        funnyLevel: { type: new GraphQLNonNull(GraphQLInt) }
+    },
+    resolve: (
+      root,
+      args: {text: string, funnyLevel: number}
+    ): Promise<Joke> => Joke.create(args.text, args.funnyLevel)
+}
