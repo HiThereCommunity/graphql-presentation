@@ -11,7 +11,7 @@ const GraphQLJoke = new GraphQLObjectType({
     },
     funnyLevel: {
       type: new GraphQLNonNull(GraphQLFunnyLevel),
-      resolve: (joke: Joke): 1|2|3|4 => joke.funnyLevel
+      resolve: (joke: Joke): number => joke.funnyLevel
     }
   })
 });

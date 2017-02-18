@@ -1,0 +1,7 @@
+{
+  joke(id: "1") {
+    id
+    text
+    funnyLevel
+  }
+}

@@ -7,10 +7,10 @@ class Joke {
 
   id: string;
   text: string;
-  funnyLevel: 1 | 2 | 3 | 4;
+  funnyLevel: number;
 
   constructor(data: Object) {
-    this.id = data.id;
+    this.id = String(data.id);
     this.text = data.text;
     this.funnyLevel = data.funnyLevel;
   }
