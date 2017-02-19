@@ -16,7 +16,9 @@ import {
   Image,
   Appear,
   CodePane,
-  Layout
+  Layout,
+  Fill,
+  Fit
 } from "spectacle";
 
 // Import image preloader util
@@ -328,7 +330,7 @@ export default class Presentation extends React.Component {
           <Text size={6} textColor="secondary">Batching/Caching</Text>
         </Slide>
         <Slide>
-          <Text>Expain issue high level that field resolvers are implemented independently of each other making batching/caching hard.</Text>
+          <Text>Query</Text>
           <CodePane
             source={require("raw-loader!../assets/code/batching/batching_user.example")}
             margin="20px auto"
@@ -336,9 +338,37 @@ export default class Presentation extends React.Component {
           />
         </Slide>
         <Slide>
-          <Text>Query</Text>
+        <Text>Executing this query on the database</Text>
+        <Layout>
+          <div style={{ display: "flex", flexDirection: "row" }}>
           <CodePane
             source={require("raw-loader!../assets/code/batching/batching_user.example")}
+            margin="20px auto"
+            textSize="0.5em"
+          />
+          <CodePane
+            lang="javascript"
+            source={require("raw-loader!../assets/code/batching/no_batch_database_result.example")}
+            margin="20px auto"
+            textSize="0.5em"
+          />
+          </div>
+          </Layout>
+        </Slide>
+        <Slide>
+          <Text>GraphQL Implementation</Text>
+          <CodePane
+            lang="javascript"
+            source={require("raw-loader!../assets/code/batching/graphQLUser.example")}
+            margin="20px auto"
+            textSize="0.5em"
+          />
+        </Slide>
+        <Slide>
+          <Text>Business Logic Implementation</Text>
+          <CodePane
+            lang="javascript"
+            source={require("raw-loader!../assets/code/batching/user_model_no_batching_gen.example")}
             margin="20px auto"
             textSize="0.5em"
           />
@@ -353,30 +383,40 @@ export default class Presentation extends React.Component {
           />
         </Slide>
         <Slide>
-          <Text>Inefficient implementation</Text>
+          <Text>Business Logic Implementation</Text>
           <CodePane
             lang="javascript"
-            source={require("raw-loader!../assets/code/batching/user_model_no_batching.example")}
+            source={require("raw-loader!../assets/code/batching/user_model_no_batching_friends.example")}
             margin="20px auto"
             textSize="0.5em"
           />
         </Slide>
         <Slide>
-          <Text>Inefficient implementation</Text>
+        <Text>Problem: Resolvers are independent functions. Each make a DB call!</Text>
+        <Layout>
+          <div style={{ display: "flex", flexDirection: "row" }}>
           <CodePane
+            source={require("raw-loader!../assets/code/batching/batching_user.example")}
+            margin="20px auto"
+            textSize="0.5em"
+          />
+          <CodePane
+            lang="javascript"
             source={require("raw-loader!../assets/code/batching/no_batch_database_result.example")}
             margin="20px auto"
             textSize="0.5em"
           />
+          </div>
+          </Layout>
         </Slide>
         <Slide>
-          <Text>Solution: DataLoader.</Text>
-          <Text>Utility used for batching and caching data requests to a
-                database or some other data source.
-          </Text>
-          <Text>This is useful in graphql where many separate
-                resolver functions make requests to the database...
-          </Text>
+          <Text bold>Solution: DataLoader.</Text>
+          <Appear fid="1">
+            <Text>Utility used for batching and caching data requests to a
+                  database or some other data source.
+            </Text>
+          </Appear>
+
         </Slide>
         <Slide>
           <Text>How does it work?</Text>
@@ -397,10 +437,18 @@ export default class Presentation extends React.Component {
           />
         </Slide>
         <Slide>
-          <Text>New Dataloader per request</Text>
-          <Text> Cache only servers purpose of not repeatedly loding the same data
-                 in the context of a single request.
-          </Text>
+          <Text bold>Pass DataLoader using the GraphQL context.</Text>
+          <List textSize={4} textColor="secondary">
+            <Appear fid="1">
+              <ListItem>Create new DataLoader per request.</ListItem>
+            </Appear>
+            <Appear fid="2">
+              <ListItem>After request has finished it is garbage collected.</ListItem>
+            </Appear>
+            <Appear fid="3">
+              <ListItem>Ensures empty cache per request.</ListItem>
+            </Appear>
+          </List>
         </Slide>
         <Slide>
           <Text>Pass dataloaders in the context</Text>
@@ -421,33 +469,44 @@ export default class Presentation extends React.Component {
           />
         </Slide>
         <Slide>
-          <Text>Efficient implementation</Text>
+          <Text>Business Logic</Text>
           <CodePane
             lang="javascript"
-            source={require("raw-loader!../assets/code/batching/user_model_batching.example")}
+            source={require("raw-loader!../assets/code/batching/user_model_batching_gen.example")}
             margin="20px auto"
             textSize="0.5em"
           />
         </Slide>
         <Slide>
-          <Text>Efficient implementation</Text>
+          <Text>Business Logic</Text>
+          <CodePane
+            lang="javascript"
+            source={require("raw-loader!../assets/code/batching/user_model_batching_friends.example")}
+            margin="20px auto"
+            textSize="0.5em"
+          />
+        </Slide>
+        <Slide>
+          <Text>The DB is happy!</Text>
+          <Layout>
+          <div style={{ display: "flex", flexDirection: "row" }}>
+          <CodePane
+            lang="javascript"
+            source={require("raw-loader!../assets/code/batching/no_batch_database_result.example")}
+            margin="20px auto"
+            textSize="0.5em"
+          />
           <CodePane
             lang="javascript"
             source={require("raw-loader!../assets/code/batching/batch_database_result.example")}
             margin="20px auto"
             textSize="0.5em"
           />
-        </Slide>
-        <Slide transition={["fade"]} bgColor="tertiary">
-          <Heading size={6} textColor="primary" caps>Lesson 3</Heading>
-          <Text size={6} textColor="secondary">Caching</Text>
+          </div>
+          </Layout>
         </Slide>
         <Slide transition={["fade"]} bgColor="tertiary">
           <Heading size={6} textColor="primary" caps>Lesson 4</Heading>
-          <Text size={6} textColor="secondary">Authentication & Authorization</Text>
-        </Slide>
-        <Slide transition={["fade"]} bgColor="tertiary">
-          <Heading size={6} textColor="primary" caps>Lesson 5</Heading>
           <Text size={6} textColor="secondary">Relay Compliant Schema</Text>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
@@ -587,7 +646,7 @@ export default class Presentation extends React.Component {
             </List>
         </Slide>
         <Slide transition={["fade"]} bgColor="tertiary">
-          <Heading size={6} textColor="primary" caps>Lesson 6</Heading>
+          <Heading size={6} textColor="primary" caps>Lesson 5</Heading>
           <Text size={6} textColor="secondary">Error Handling</Text>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
@@ -716,9 +775,6 @@ export default class Presentation extends React.Component {
             <Text size={6} textColor="secondary" caps>References & Recommendations</Text>
             <List textSize={4} textColor="tertiary">
               <ListItem>Reacteurope 2016 talk Dan Schafer</ListItem>
-              <ListItem>x</ListItem>
-              <ListItem>x</ListItem>
-              <ListItem>x</ListItem>
             </List>
         </Slide>
         <Slide transition={["fade"]} bgColor="tertiary">

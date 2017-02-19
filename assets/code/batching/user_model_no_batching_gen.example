@@ -9,18 +9,6 @@ class User {
   constructor(data) {
     this.id = data.id;
     this.name = data.name;
-    this.bestFriend = data.bestFriend;
-  }
-
-  async getFriends(viewer: User, first: number) {
-    const data = await db.friends.findAll({
-      where: {
-        from_id: this.id
-      },
-      limit: first,
-      attributes: ["to_id"]
-    });
-
-    return data.map(entry => User.gen(viewer, entry.to_id));
+    this.bestFriendId = data.best_friend_id;
   }
 }
