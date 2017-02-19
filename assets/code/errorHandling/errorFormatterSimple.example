@@ -2,20 +2,14 @@ export default (debugMode: boolean = false): ErrorFormatter => {
   return (error: GraphQLError) => {
     let message: string;
 
-    if (debugMode) {
+    if (debugMode) { //Show all errors in debug mode
       message = error.message;
+    } else if (error.originalError){ //Internal if graphql error caused by bug
+      message = "Internal Server Error";
     } else {
-      if (error.originalError) {
-        const { originalError } = error;
-        if (originalError instanceof ClientError) {
-          message = originalError.message;
-        } else {
-          message = "Internal Server Error";
-        }
-      } else {
-        message = "Query Error";
-      }
+      message = error.message; //Show error message if error not caused by bug
     }
+
     return {
       message,
       ...(error.locations ? { locations: error.locations } : null),

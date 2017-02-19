@@ -1,0 +1,24 @@
+//Mutation:
+mutation {
+  addJoke(input({text: "haha" funnyness: -5 ClientMutationId: "H0r5!e="}) {
+    joke {
+      id
+    }
+  }
+}
+
+//Mutation result
+{
+  "data": null,
+  "errors": [
+    {
+      "message": "How on earth can a joke have a negative funnyness?",
+      "locations": [
+        {
+          "line": 20,
+          "column": 5
+        }
+      ]
+    }
+  ]
+}

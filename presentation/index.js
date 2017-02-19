@@ -594,21 +594,11 @@ export default class Presentation extends React.Component {
           <Text size={6} textColor="secondary">Error Handling</Text>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
-          <Appear fid="1">
-            <Heading size={6} textColor="secondary" caps>Create distinction between:</Heading>
-          </Appear>
-          <List textColor="tertiary">
-            <Appear fid="1">
-              <ListItem>User errors and internal errors</ListItem>
-            </Appear>
-            <Appear fid="2">
-              <ListItem>Production and development</ListItem>
-            </Appear>
-          </List>
+          <Text size={6} textColor="secondary">Production vs Development</Text>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
           <Appear fid="1">
-            <Heading size={6} textColor="secondary" caps>Development GraphQL Error Response</Heading>
+            <Text size={6} textColor="secondary">Undesired Production GraphQL Error Response</Text>
           </Appear>
           <Appear fid="2">
             <CodePane
@@ -620,55 +610,10 @@ export default class Presentation extends React.Component {
           </Appear>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
-          <Heading size={6} textColor="secondary" caps>Production GraphQL Error Response</Heading>
-          <CodePane
-            lang="javascript"
-            source={require("raw-loader!../assets/code/errorHandling/prodGraphQLResponse.example")}
-            margin="20px auto"
-            textSize="0.6em"
-          />
+          <Text size={6} textColor="secondary">Define different output for production and development</Text>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
-          <Appear fid="1">
-            <Heading size={6} textColor="secondary" caps>User errors versus internal errors</Heading>
-          </Appear>
-          <Appear fid="2">
-            <CodePane
-              lang="javascript"
-              source={require("raw-loader!../assets/code/errorHandling/userVersusInternalError.example")}
-              margin="20px auto"
-              textSize="0.6em"
-            />
-          </Appear>
-        </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-          <Appear fid="3">
-            <Heading size={6} textColor="secondary" caps>Introduce Client Error</Heading>
-          </Appear>
-          <Appear fid="4">
-            <CodePane
-              lang="javascript"
-              source={require("raw-loader!../assets/code/errorHandling/clientError.example")}
-              margin="20px auto"
-              textSize="0.6em"
-            />
-          </Appear>
-        </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-          <Appear fid="1">
-            <Heading size={6} textColor="secondary" caps>Client Error Usage</Heading>
-          </Appear>
-          <Appear fid="2">
-            <CodePane
-              lang="javascript"
-              source={require("raw-loader!../assets/code/errorHandling/userErrorSolution.example")}
-              margin="20px auto"
-              textSize="0.6em"
-            />
-          </Appear>
-        </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-          <Heading size={6} textColor="secondary" caps>Add FormatError Function</Heading>
+          <Text size={6} textColor="secondary">Providing a Error Formatting Function</Text>
           <CodePane
             lang="javascript"
             source={require("raw-loader!../assets/code/errorHandling/formatErrorSchema.example")}
@@ -677,7 +622,64 @@ export default class Presentation extends React.Component {
           />
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
-          <Heading size={6} textColor="secondary" caps>Error Formatter</Heading>
+          <Text size={6} textColor="secondary">Simplified Error Formatter</Text>
+          <CodePane
+            lang="javascript"
+            source={require("raw-loader!../assets/code/errorHandling/errorFormatterSimple.example")}
+            margin="20px auto"
+            textSize="0.6em"
+          />
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Text size={6} textColor="secondary">Updated GraphQL Error Response</Text>
+          <CodePane
+            lang="javascript"
+            source={require("raw-loader!../assets/code/errorHandling/prodGraphQLResponse.example")}
+            margin="20px auto"
+            textSize="0.6em"
+          />
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Text size={6} textColor="secondary">Error Types</Text>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Text size={6} textColor="secondary">User Errors vs Internal Errors</Text>
+          <CodePane
+            lang="javascript"
+            source={require("raw-loader!../assets/code/errorHandling/userVersusInternalError.example")}
+            margin="20px auto"
+            textSize="0.6em"
+          />
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+            <Text size={6} textColor="secondary">Distinct Error Types</Text>
+            <List textSize={4} textColor="secondary">
+              <ListItem>Syntax / Type Errors</ListItem>
+              <ListItem>Runtime Errors</ListItem>
+              <ListItem>User Errors that dont need to be parsed by the client</ListItem>
+              <ListItem>User Errors that need to be parsed by the client</ListItem>
+            </List>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Text size={6} textColor="secondary">Introduce Client Error</Text>
+          <CodePane
+            lang="javascript"
+            source={require("raw-loader!../assets/code/errorHandling/clientError.example")}
+            margin="20px auto"
+            textSize="0.6em"
+          />
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Text size={6} textColor="secondary">Use Client Error</Text>
+          <CodePane
+            lang="javascript"
+            source={require("raw-loader!../assets/code/errorHandling/userErrorSolution.example")}
+            margin="20px auto"
+            textSize="0.6em"
+          />
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Text size={6} textColor="secondary">Update Error Formatter</Text>
           <CodePane
             lang="javascript"
             source={require("raw-loader!../assets/code/errorHandling/errorFormatter.example")}
@@ -686,36 +688,35 @@ export default class Presentation extends React.Component {
           />
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
-            <Heading size={6} textColor="secondary" caps>Advantages</Heading>
-            <List textSize={4} textColor="tertiary">
+          <Text size={6} textColor="secondary">Result</Text>
+          <CodePane
+            lang="javascript"
+            source={require("raw-loader!../assets/code/errorHandling/errorFormatterOutput.example")}
+            margin="20px auto"
+            textSize="0.6em"
+          />
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+            <Text size={6} textColor="secondary">Advantages</Text>
+            <List textSize={4} textColor="secondary">
               <ListItem>Error stack visible in debug mode</ListItem>
-              <ListItem>No server source code exposed</ListItem>
-              <ListItem>No cryptic internal server errors</ListItem>
+              <ListItem>No server source code exposed in production</ListItem>
               <ListItem>Descriptive user error messages</ListItem>
+              <ListItem>GraphQL Syntax errors visible</ListItem>
             </List>
         </Slide>
-        <Slide transition={["fade"]} bgColor="tertiary">
-          <Heading size={6} textColor="primary" caps>Exciting Community Work</Heading>
-        </Slide>
         <Slide transition={["fade"]} bgColor="primary">
-            <Heading size={6} textColor="secondary" caps>Query whitelisting</Heading>
-        </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-            <Heading size={6} textColor="secondary" caps>Serverless</Heading>
-        </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-            <Heading size={6} textColor="secondary" caps>To SUm Up</Heading>
-            <List textSize={4} textColor="tertiary">
+            <Text size={6} textColor="secondary">To Sum Up</Text>
+            <List textSize={4} textColor="secondary">
               <ListItem>Lesson 1: API, Business Logic, Persistance Layer</ListItem>
               <ListItem>Lesson 2: Authentication & Authorization</ListItem>
-              <ListItem>Lesson 3: Relay compliant schema</ListItem>
-              <ListItem>Lesson 4: Batching</ListItem>
-              <ListItem>Lesson 5: Caching</ListItem>
-              <ListItem>Lesson 6: Error Handling</ListItem>
+              <ListItem>Lesson 3: Batching & Caching</ListItem>
+              <ListItem>Lesson 4: Relay compliant schema</ListItem>
+              <ListItem>Lesson 5: Error Handling</ListItem>
             </List>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
-            <Heading size={6} textColor="secondary" caps>References & Recommendations</Heading>
+            <Text size={6} textColor="secondary" caps>References & Recommendations</Text>
             <List textSize={4} textColor="tertiary">
               <ListItem>Reacteurope 2016 talk Dan Schafer</ListItem>
               <ListItem>x</ListItem>
@@ -724,7 +725,7 @@ export default class Presentation extends React.Component {
             </List>
         </Slide>
         <Slide transition={["fade"]} bgColor="tertiary">
-          <Heading size={6} textColor="primary" caps>Thanks!</Heading>
+          <Heading size={6} textColor="primary">Thanks!</Heading>
         </Slide>
       </Deck>
     );

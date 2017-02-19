@@ -1,13 +1,18 @@
 class Joke {
-  static async gen(id: ID) {
-    if (!isNumeric(id)) {
-      //Input error
-      throw new Error("id should be numeric, but got: " + id);
-    }
-    else {
-      const joke = await db.jokeEntity.findOne({id});
-      //Internal error since joke is not a function
-      return new Joke(joke());
-    }
+  static async create(text: string, funnyness: number): Promise<Joke> {
+
+    //Possible input errors:
+    if (text.length == 0)
+      throw new Error('Provide a joke please!');
+    if (funnyLevel < 0)
+      throw new Error('How on earth can a joke have a negative funnyness?');
+
+    const data = await db.joke.create({
+      text,
+      funnyLevel
+    });
+
+    //Internal error since data is not a function
+    return new Joke(data());
   }
 }

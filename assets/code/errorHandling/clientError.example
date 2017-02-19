@@ -1,6 +1,9 @@
-declare class ClientError extends Error {}
-
-export default function ClientError(message) {
-  this.message = message;
-  this.stack = (new Error()).stack;
+export default class ClientError {
+  constructor(message) {
+    this.name = 'ClientError';
+    this.message = message;
+    Error.captureStackTrace(this, ClientError);
+  }
 }
+
+ClientError.prototype = Object.create(Error.prototype);
