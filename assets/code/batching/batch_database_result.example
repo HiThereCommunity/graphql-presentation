@@ -1,3 +1,8 @@
-ids: 1, 2, 3, 4, 5, 6, 7
+//me
+id: 1
+//bestFriend
+id: 2
 // friends(first: 5)
 friends: limit 5
+ids: 3, 4, 5, 6
+// bestFriend

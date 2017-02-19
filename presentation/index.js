@@ -288,20 +288,19 @@ export default class Presentation extends React.Component {
             </Appear>
           </List>
         </Slide>
+        <Slide transition={["fade"]} bgColor="tertiary">
+          <Heading size={6} textColor="primary" caps>Lesson 2</Heading>
+          <Text size={6} textColor="secondary">Authorization</Text>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Image src={images.businessLogic} />
+          <Cite>graphql.org</Cite>
+        </Slide>
         <Slide>
           <Text> Single source of truth for authorization</Text>
           <CodePane
             lang="javascript"
-            source={require("raw-loader!../assets/code/business_logic/authorization.example")}
-            margin="20px auto"
-            textSize="0.5em"
-          />
-        </Slide>
-        <Slide>
-          <Text>Response</Text>
-          <CodePane
-            lang="javascript"
-            source={require("raw-loader!../assets/code/business_logic/authorization.example")}
+            source={require("raw-loader!../assets/code/authorization/authorization.example")}
             margin="20px auto"
             textSize="0.5em"
           />
@@ -310,7 +309,7 @@ export default class Presentation extends React.Component {
           <Text> Viewer is contained in context </Text>
           <CodePane
             lang="javascript"
-            source={require("raw-loader!../assets/code/business_logic/graphql_endpoint.example")}
+            source={require("raw-loader!../assets/code/authorization/graphql_endpoint.example")}
             margin="20px auto"
             textSize="0.5em"
           />
@@ -319,24 +318,22 @@ export default class Presentation extends React.Component {
           <Text> Viewer is now available in GraphQL</Text>
           <CodePane
             lang="javascript"
-            source={require("raw-loader!../assets/code/business_logic/query_authenticated.example")}
+            source={require("raw-loader!../assets/code/authorization/query_authenticated.example")}
             margin="20px auto"
             textSize="0.5em"
           />
         </Slide>
-        <Slide transition={["fade"]} bgColor="primary" textColor="tertiary">
-          <Heading size={6} textColor="secondary" caps>Advantages</Heading>
-          <List>
-            <ListItem>Easy to understand code structure</ListItem>
-            <ListItem>Single source of truth for authorization and validation</ListItem>
-            <ListItem>Reusability logic across multiple schemas</ListItem>
-            <ListItem>DB type is implementation detail</ListItem>
-            <ListItem>Testability</ListItem>
-          </List>
-        </Slide>
         <Slide transition={["fade"]} bgColor="tertiary">
-          <Heading size={6} textColor="primary" caps>Lesson 2</Heading>
-          <Text size={6} textColor="secondary">Batching</Text>
+          <Heading size={6} textColor="primary" caps>Lesson 3</Heading>
+          <Text size={6} textColor="secondary">Batching/Caching</Text>
+        </Slide>
+        <Slide>
+          <Text>Expain issue high level that field resolvers are implemented independently of each other making batching/caching hard.</Text>
+          <CodePane
+            source={require("raw-loader!../assets/code/batching/batching_user.example")}
+            margin="20px auto"
+            textSize="0.5em"
+          />
         </Slide>
         <Slide>
           <Text>Query</Text>

@@ -1,6 +1,5 @@
 const canYouSeeThisJoke = (viewer: User, data: Object): boolean => {
-  if (!data.private) return true;
-  else return data.creator === viewer.id
+    return data.creator === viewer.id
 }
 
 class Joke {
