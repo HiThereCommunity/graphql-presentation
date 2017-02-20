@@ -6,14 +6,8 @@ class User {
   ): Promise<?User> {
     const data = loader.load(id);
     if (data == null) return null;
-    // Add some authorization logic
+    /* authorization check*/
     const canSee = checkCanSee(viewer, id);
     return canSee ? new User(data) : null;
-  }
-
-  constructor(data) {
-    this.id = data.id;
-    this.name = data.name;
-    this.bestFriendId = data.best_friend_id;
   }
 }

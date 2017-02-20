@@ -85,23 +85,7 @@ export default class Presentation extends React.Component {
           </Appear>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
-            <Text size={6} textColor="secondary">GraphQL Example</Text>
-            <Text>Add hello world query here</Text>
-        </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-          <Appear fid="1">
-            <Text size={6} textColor="secondary">Why we chose GraphQL over REST?</Text>
-          </Appear>
-          <Appear fid="2">
-          <List>
-            <ListItem>Client defines requirements, not server</ListItem>
-            <ListItem>Self documenting</ListItem>
-            <ListItem>Versioning</ListItem>
-            <ListItem>Input validation</ListItem>
-            <ListItem>GraphiQL</ListItem>
-            <ListItem>Community is awesome!</ListItem>
-          </List>
-          </Appear>
+            <Text size={6} textColor="secondary">GraphQL Demo</Text>
         </Slide>
         <Slide transition={["fade"]} bgColor="tertiary">
           <Heading size={6} textColor="primary" caps>Lesson 1</Heading>
@@ -353,37 +337,10 @@ export default class Presentation extends React.Component {
           </Layout>
         </Slide>
         <Slide>
-          <Text>GraphQL Implementation</Text>
-          <CodePane
-            lang="javascript"
-            source={require("raw-loader!../assets/code/batching/graphQLUser.example")}
-            margin="20px auto"
-            textSize="0.5em"
-          />
-        </Slide>
-        <Slide>
           <Text>Business Logic Implementation</Text>
           <CodePane
             lang="javascript"
             source={require("raw-loader!../assets/code/batching/user_model_no_batching_gen.example")}
-            margin="20px auto"
-            textSize="0.5em"
-          />
-        </Slide>
-        <Slide>
-          <Text>GraphQL Implementation</Text>
-          <CodePane
-            lang="javascript"
-            source={require("raw-loader!../assets/code/batching/graphQLUser.example")}
-            margin="20px auto"
-            textSize="0.5em"
-          />
-        </Slide>
-        <Slide>
-          <Text>Business Logic Implementation</Text>
-          <CodePane
-            lang="javascript"
-            source={require("raw-loader!../assets/code/batching/user_model_no_batching_friends.example")}
             margin="20px auto"
             textSize="0.5em"
           />
@@ -448,37 +405,10 @@ export default class Presentation extends React.Component {
           </List>
         </Slide>
         <Slide>
-          <Text>Pass dataloaders in the context</Text>
-          <CodePane
-            lang="javascript"
-            source={require("raw-loader!../assets/code/batching/loader_per_request.example")}
-            margin="20px auto"
-            textSize="0.5em"
-          />
-        </Slide>
-        <Slide>
-          <Text>Pass them through to the business logic</Text>
-          <CodePane
-            lang="javascript"
-            source={require("raw-loader!../assets/code/batching/graphQLUserLoader.example")}
-            margin="20px auto"
-            textSize="0.5em"
-          />
-        </Slide>
-        <Slide>
           <Text>Business Logic</Text>
           <CodePane
             lang="javascript"
             source={require("raw-loader!../assets/code/batching/user_model_batching_gen.example")}
-            margin="20px auto"
-            textSize="0.5em"
-          />
-        </Slide>
-        <Slide>
-          <Text>Business Logic</Text>
-          <CodePane
-            lang="javascript"
-            source={require("raw-loader!../assets/code/batching/user_model_batching_friends.example")}
             margin="20px auto"
             textSize="0.5em"
           />
@@ -559,24 +489,6 @@ export default class Presentation extends React.Component {
           />
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
-          <Text size={6} textColor="secondary">How would you implement this?</Text>
-          <CodePane
-            lang="javascript"
-            source={require("raw-loader!../assets/code/relay/uniqueOpaqueId.example")}
-            margin="20px auto"
-            textSize="0.6em"
-          />
-        </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-          <Text size={5} textColor="secondary">How would you implement this?</Text>
-          <CodePane
-            lang="javascript"
-            source={require("raw-loader!../assets/code/relay/uniqueOpaqueId2.example")}
-            margin="20px auto"
-            textSize="0.6em"
-          />
-        </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
           <Text size={6} textColor="secondary">Pagination</Text>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
@@ -606,30 +518,6 @@ export default class Presentation extends React.Component {
           />
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
-          <Text size={6} textColor="secondary">Mutations</Text>
-        </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-          <Text size={6} textColor="secondary">Opinionated unified way for implementing mutations</Text>
-        </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-          <Text size={6} textColor="secondary">Example Mutation</Text>
-          <CodePane
-            lang="javascript"
-            source={require("raw-loader!../assets/code/relay/relayMutation.example")}
-            margin="20px auto"
-            textSize="0.6em"
-          />
-        </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-            <Text size={6} textColor="secondary">Properties</Text>
-            <List textSize={4} textColor="secondary">
-              <ListItem>Mutations are root fields on the mutation type </ListItem>
-              <ListItem>Consistent naming conventions and input conventions</ListItem>
-              <ListItem>Both input and output contain a ClientMutationId</ListItem>
-              <ListItem>Convention: start field names with a verb</ListItem>
-            </List>
-        </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
           <Text size={6} textColor="secondary">Opportunity to change to Relay if you wish</Text>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
@@ -638,7 +526,6 @@ export default class Presentation extends React.Component {
               <ListItem>Enforce globally unique id that is opaque</ListItem>
               <ListItem>Any resource that belongs to you can be retrieved using a single query</ListItem>
               <ListItem>Pagination for lists is built in</ListItem>
-              <ListItem>Opinionated about mutations</ListItem>
               <ListItem>Opportunity to change to Relay if you wish</ListItem>
             </List>
         </Slide>
@@ -664,24 +551,6 @@ export default class Presentation extends React.Component {
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
           <Text size={6} textColor="secondary">Define different output for production and development</Text>
-        </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-          <Text size={6} textColor="secondary">Providing a Error Formatting Function</Text>
-          <CodePane
-            lang="javascript"
-            source={require("raw-loader!../assets/code/errorHandling/formatErrorSchema.example")}
-            margin="20px auto"
-            textSize="0.6em"
-          />
-        </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-          <Text size={6} textColor="secondary">Simplified Error Formatter</Text>
-          <CodePane
-            lang="javascript"
-            source={require("raw-loader!../assets/code/errorHandling/errorFormatterSimple.example")}
-            margin="20px auto"
-            textSize="0.6em"
-          />
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
           <Text size={6} textColor="secondary">Updated GraphQL Error Response</Text>
