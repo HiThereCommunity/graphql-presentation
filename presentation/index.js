@@ -4,21 +4,19 @@ import React from "react";
 // Import Spectacle Core tags
 import {
   BlockQuote,
+  Quote,
   Cite,
   Deck,
   Heading,
   ListItem,
   List,
   Link,
-  Quote,
   Slide,
   Text,
   Image,
   Appear,
   CodePane,
-  Layout,
-  Fill,
-  Fit
+  Layout
 } from "spectacle";
 
 // Import image preloader util
@@ -83,7 +81,7 @@ export default class Presentation extends React.Component {
             <Text size={6} textColor="secondary">What is GraphQL?</Text>
           </Appear>
           <Appear fid="2">
-            <Text>GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data</Text>
+            <Text>A query language for your API</Text>
           </Appear>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
@@ -101,8 +99,7 @@ export default class Presentation extends React.Component {
             <ListItem>Versioning</ListItem>
             <ListItem>Input validation</ListItem>
             <ListItem>GraphiQL</ListItem>
-            <ListItem>Developer tools</ListItem>
-            <ListItem>Single endpoint</ListItem>
+            <ListItem>Community is awesome!</ListItem>
           </List>
           </Appear>
         </Slide>
@@ -764,7 +761,7 @@ export default class Presentation extends React.Component {
         <Slide transition={["fade"]} bgColor="primary">
             <Text size={6} textColor="secondary">To Sum Up</Text>
             <List textSize={4} textColor="secondary">
-              <ListItem>Lesson 1: API, Business Logic, Persistance Layer</ListItem>
+              <ListItem>Lesson 1: API, Business Logic, Persistence Layer</ListItem>
               <ListItem>Lesson 2: Authentication & Authorization</ListItem>
               <ListItem>Lesson 3: Batching & Caching</ListItem>
               <ListItem>Lesson 4: Relay compliant schema</ListItem>
