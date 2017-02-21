@@ -1,15 +1,15 @@
 class Joke {
 
-  static async create(text: string, funnyLevel: number): Promise<Joke> {
-    if (text.length == 0) throw new Error('Provide a joke please!');
-    if (funnyLevel > 0) throw new Error('Funny level must be a positive number');
-    if (funnyLevel > 5) throw new Error(`Funny level ${funnyLevel}? Be honest, no joke is that funny.`);
+  static async gen(id: string): Promise<?Joke> {}
 
-    const data = await db.joke.create({
-      text,
-      funnyLevel
-    });
+  static async update(jokeId: string, funnyLevel: number): Promise<Joke> {
+    if (funnyLevel < 0 || funnyLevel > 5)
+      throw new Error('Invalid funny level.');
 
-    return new Joke(data);
+    const joke = await Joke.gen(jokeId);
+    if (!joke) throw new Error('No joke for id');
+
+    await joke.setFunnyLevel(funnyLevel);
+    return joke
   }
 }

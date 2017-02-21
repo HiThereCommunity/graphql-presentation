@@ -1,0 +1,7 @@
+mutation {
+  updateJoke(jokeId: "1", funnyLevel: 10) {
+    id
+    text
+    funnyLevel
+  }
+}

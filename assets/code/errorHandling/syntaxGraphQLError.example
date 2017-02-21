@@ -1,0 +1,21 @@
+//Example of syntax error:
+query
+{
+  viewer {
+    namme
+  }
+}
+//Desired result:
+{
+  "errors": [
+    {
+      "message": "Cannot query field \"namme\" on type \"User\". Did you mean \"name\"?",
+      "locations": [
+        {
+          "line": 21,
+          "column": 5
+        }
+      ]
+    }
+  ]
+}

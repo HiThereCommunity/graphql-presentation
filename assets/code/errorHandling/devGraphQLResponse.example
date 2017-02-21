@@ -1,7 +1,7 @@
 {
   "errors": [
     {
-      "message": `This is an insanely weird bug. The whole planet will
+      "message": `This is an insanely weird internal server error. The whole planet will
       now be destroyed.`,
       "locations": [
         {
@@ -10,7 +10,7 @@
         }
       ],
       "stack":
-        `Error: This is an insanely weird bug. The whole planet will now be destroyed.\n
+        `Error: This is an insanely weird internal server error. The whole planet will now be destroyed.\n
         at Joke.gen (/Users/florentijn/Documents/projects/src/models/joke.js:34:11)\n
         at Object.Argument (/Users/florentijn/Documents/projects/node_modules/graphql/validation/rules/ArgumentsOfCorrectType.js:42:31)\n
         at Object.enter (/Users/florentijn/Documents/projects/node_modules/graphql/language/visitor.js:296:29)\n
@@ -20,6 +20,13 @@
         at validate (/Users/florentijn/Documents/projects/node_modules/graphql/validation/validate.js:60:10)\n
         at /Users/florentijn/Documents/projects/node_modules/express-graphql/dist/index.js:142:52\n
         at process._tickDomainCallback (internal/process/next_tick.js:129:7)`
-    }
+    },
+    "path": [
+      "viewer",
+      "jokes",
+      "edges",
+      0,
+      "node"
+    ]
   ]
 }

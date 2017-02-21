@@ -1,11 +1,11 @@
 query {
-  user {
-    jokes(first: 10 /*The offset*/, after: "TUr71e=!" /*Curser*/) {
+  viewer {
+    jokes(first: 10 /*The offset*/, after: "TUr71e=!" /*Cursor*/) {
       edges {
-        cursor //Curser
+        cursor //Cursor
         node {
-          title
-          funnyness
+          text
+          funnyLevel
         }
       }
       pageInfo { //pageInfo contains info about whether there exist more edges

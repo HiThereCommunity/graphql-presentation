@@ -1,12 +1,11 @@
-{
+import Joke from "../logic";
+
+const mutation = {
     type: new GraphQLNonNull(GraphQLJoke),
-    description: "Create a new joke.",
+    description: "Update a joke.",
     args: {
-        text: { type: new GraphQLNonNull(GraphQLString) },
+        jokeId: { type: new GraphQLNonNull(GraphQLID) },
         funnyLevel: { type: new GraphQLNonNull(GraphQLInt) }
     },
-    resolve: (
-      root,
-      args: {text: string, funnyLevel: number}
-    ): Promise<Joke> => Joke.create(args.text, args.funnyLevel)
+    resolve: (root, args) => Joke.update(args.jokeId, args.funnyLevel)
 }
