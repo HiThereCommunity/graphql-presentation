@@ -60,13 +60,14 @@ export default class Presentation extends React.Component {
           </Heading>
         </Slide>
         <Slide transition={["fade"]} bgColor="tertiary">
-          <Heading size={6} textColor="primary" caps>Hi There</Heading>
-          <Text size={4} margin={30} textColor="secondary">Striving for innovation in the insurance industry.</Text>
-          <Link href="http://hi-there.community">hi-there.community</Link>
           <Heading size={6} textColor="primary" caps>Dirk-Jan</Heading>
           <Text size={4} margin={30} textColor="secondary">Dirk is a Software Engineer with a focus on Javascript who gets (way too) excited about writing stable and well tested code. GraphQL fan.</Text>
           <Heading size={6} textColor="primary" caps>Florentijn</Heading>
           <Text size={4} margin={30} textColor="secondary">GraphQL enthusiast. Focusing on Javascript and realizing highly available, easy to maintain solutions on AWS. I like giving high fives.</Text>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="tertiary">
+          <Heading size={6} textColor="primary" caps>Hi There</Heading>
+          <Link href="http://hi-there.community">hi-there.community</Link>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
             <Text size={6} textColor="secondary">Agenda</Text>
