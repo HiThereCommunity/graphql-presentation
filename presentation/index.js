@@ -516,7 +516,7 @@ export default class Presentation extends React.Component {
           />
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
-          <Text size={6} textColor="secondary">Error Types</Text>
+          <Text size={6} textColor="secondary">The Need for Distinct Error Types</Text>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
           <Text size={6} textColor="secondary">User Errors vs Internal Errors</Text>
@@ -528,16 +528,10 @@ export default class Presentation extends React.Component {
           />
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
-            <Text size={6} textColor="secondary">Distinct Error Types</Text>
-            <List textSize={4} textColor="secondary">
-              <ListItem>Syntax / Type Errors</ListItem>
-              <ListItem>Runtime Errors</ListItem>
-              <ListItem>User Errors that dont need to be parsed by the client</ListItem>
-              <ListItem>User Errors that need to be parsed by the client</ListItem>
-            </List>
+            <Text size={6} textColor="secondary">Four Error Types</Text>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
-          <Text size={6} textColor="secondary">Syntax / Type Errors</Text>
+          <Text size={6} textColor="secondary">1. Syntax / Type Errors</Text>
           <CodePane
             lang="javascript"
             source={require("raw-loader!../assets/code/errorHandling/syntaxGraphQLError.example")}
@@ -546,7 +540,7 @@ export default class Presentation extends React.Component {
           />
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
-          <Text size={6} textColor="secondary">Runtime Errors</Text>
+          <Text size={6} textColor="secondary">2. Runtime Errors</Text>
           <CodePane
             lang="javascript"
             source={require("raw-loader!../assets/code/errorHandling/runTimeError.example")}
@@ -555,16 +549,10 @@ export default class Presentation extends React.Component {
           />
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
-          <Text size={6} textColor="secondary">User Errors that dont need to be parsed by the client</Text>
+          <Text size={6} textColor="secondary">3. User Errors that dont need to be parsed by the client</Text>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
-          <Text size={6} textColor="secondary">Introduce Client Error</Text>
-          <CodePane
-            lang="javascript"
-            source={require("raw-loader!../assets/code/errorHandling/clientError.example")}
-            margin="20px auto"
-            textSize="0.6em"
-          />
+          <Text size={6} textColor="secondary">Introduce Client Error Class</Text>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
           <Text size={5} textColor="secondary">Client Error Usage</Text>
@@ -585,7 +573,7 @@ export default class Presentation extends React.Component {
           />
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
-          <Text size={6} textColor="secondary">User Errors that need to be parsed by the client</Text>
+          <Text size={6} textColor="secondary">4. User Errors that need to be parsed by the client</Text>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
           <Text size={5} textColor="secondary">Examples</Text>

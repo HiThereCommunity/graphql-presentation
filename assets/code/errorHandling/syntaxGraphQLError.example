@@ -1,23 +1,18 @@
-query { //Example of syntax error:
+//Example of syntax error:
+query
+{
   viewer {
-    id
-    name
-    jokess {
-      edges {
-        node {
-          text
-        }
-      }
-    }
+    namme
   }
 }
-{ //Desired result:
+//Desired result:
+{
   "errors": [
     {
-      "message": "Cannot query field \"jokess\" on type \"User\". Did you mean \"jokes\"?",
+      "message": "Cannot query field \"namme\" on type \"User\". Did you mean \"name\"?",
       "locations": [
         {
-          "line": 24,
+          "line": 21,
           "column": 5
         }
       ]

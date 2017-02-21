@@ -2,7 +2,7 @@ class Joke {
   static async create(text: string, funnyLevel: number): Promise<Joke> {
 
     //Possible input errors:
-    if (text.length == 0)
+    if (text.length === 0)
       throw new Error('Provide a joke please!');
 
     const data = await db.joke.create({
