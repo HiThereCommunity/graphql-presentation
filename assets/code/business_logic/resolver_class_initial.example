@@ -3,15 +3,15 @@ const GraphQLJoke = new GraphQLObjectType({
   fields: {
     id: {
       type: new GraphQLNonNull(GraphQLID),
-      resolve: (joke: Joke): ID =>  joke.id
+      resolve: (data) =>  data.id
     },
     text: {
       type: new GraphQLNonNull(GraphQLString),
-      resolve: (joke: Joke): string => joke.text
+      resolve: (data) => data.text
     },
     funnyLevel: {
       type: new GraphQLNonNull(GraphQLFunnyLevel),
-      resolve: (joke: Joke): number => joke.funnyLevel
+      resolve: (data) => data.funnyLevel
     }
   }
 });

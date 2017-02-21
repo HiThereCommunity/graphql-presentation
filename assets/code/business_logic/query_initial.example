@@ -1,5 +1,3 @@
-import Joke from "../logic";
-
 const query = {
   joke: {
     type: GraphQLJoke,
@@ -8,6 +6,9 @@ const query = {
         type: new GraphQLNonNull(GraphQLID)
       }
     },
-    resolve: (root, args): Promise<?Joke> => Joke.gen(args.id)
+    resolve: async (root, args) {
+      const data = await db.joke.findById(id);
+      return data;
+    }
   }
 }
