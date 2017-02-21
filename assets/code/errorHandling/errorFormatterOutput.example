@@ -1,6 +1,6 @@
 //Mutation:
 mutation {
-  addJoke(input({text: "haha" funnyness: -5 ClientMutationId: "H0r5!e="}) {
+  addJoke(input({text: "" funnyLevel: 4 ClientMutationId: "H0r5!e="}) {
     joke {
       id
     }
@@ -12,7 +12,7 @@ mutation {
   "data": null,
   "errors": [
     {
-      "message": "How on earth can a joke have a negative funnyness?",
+      "message": "Can you please provide a joke with more than zero characters? :)",
       "locations": [
         {
           "line": 20,

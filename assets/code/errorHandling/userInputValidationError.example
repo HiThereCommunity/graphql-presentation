@@ -1,0 +1,15 @@
+//Output fields inside GraphQL mutation:
+outputFields: {
+  joke: {
+    type: GraphQLJoke,
+    resolve: payload => payload.joke
+  },
+  isSwearword: {
+    type: new GraphQLNonNull(GraphQLBoolean),
+    resolve: payload => payload.isSwearword
+  },
+  isDuplicate: {
+    type: new GraphQLNonNull(GraphQLBoolean),
+    resolve: payload => payload.isDuplicate
+  }
+}

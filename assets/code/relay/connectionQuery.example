@@ -1,10 +1,10 @@
 query {
-  user {
+  viewer {
     jokes(first: 10 /*The offset*/, after: "TUr71e=!" /*Cursor*/) {
       edges {
         cursor //Cursor
         node {
-          title
+          text
           funnyLevel
         }
       }

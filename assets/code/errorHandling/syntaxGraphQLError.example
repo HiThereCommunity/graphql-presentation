@@ -1,0 +1,26 @@
+query { //Example of syntax error:
+  viewer {
+    id
+    name
+    jokess {
+      edges {
+        node {
+          text
+        }
+      }
+    }
+  }
+}
+{ //Desired result:
+  "errors": [
+    {
+      "message": "Cannot query field \"jokess\" on type \"User\". Did you mean \"jokes\"?",
+      "locations": [
+        {
+          "line": 24,
+          "column": 5
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+
+throw new Error("Unexpected exception occurred in resolver of field text");
+
+{ //Desired result:
+  "errors": [
+    {
+      "message": "Internal Server Error",
+      "locations": [
+        {
+          "line": 27,
+          "column": 11
+        }
+      ],
+      "path": [
+        "viewer",
+        "jokes",
+        "edges",
+        0,
+        "node",
+        "text"
+      ]
+    }
+  ]
+}

@@ -1,7 +1,20 @@
 {
   "errors": [
-    {
-      "message": "Internal Error"
-    }
+  {
+    "message": "Internal Server Error",
+    "locations": [
+      {
+        "line": 29,
+        "column": 22
+      }
+    ],
+    "path": [
+      "viewer",
+      "jokes",
+      "edges",
+      0,
+      "node"
+    ]
+  },
   ]
 }
