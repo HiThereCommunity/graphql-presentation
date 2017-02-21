@@ -299,102 +299,6 @@ export default class Presentation extends React.Component {
         </Slide>
         <Slide transition={["fade"]} bgColor="tertiary">
           <Heading size={6} textColor="primary" caps>Lesson 3</Heading>
-          <Text size={6} textColor="secondary">Batching/Caching</Text>
-        </Slide>
-        <Slide>
-          <Text>Query</Text>
-          <CodePane
-            source={require("raw-loader!../assets/code/batching/batching_user.example")}
-            margin="20px auto"
-            textSize="0.5em"
-          />
-        </Slide>
-        <Slide>
-        <Text>Problem: Resolvers are independent functions.</Text>
-        <Layout>
-          <div style={{ display: "flex", flexDirection: "row" }}>
-          <CodePane
-            source={require("raw-loader!../assets/code/batching/batching_user.example")}
-            margin="20px auto"
-            textSize="0.5em"
-          />
-          <CodePane
-            lang="javascript"
-            source={require("raw-loader!../assets/code/batching/no_batch_database_result.example")}
-            margin="20px auto"
-            textSize="0.5em"
-          />
-          </div>
-          </Layout>
-        </Slide>
-        <Slide>
-          <Text bold>Solution: DataLoader.</Text>
-          <Appear fid="1">
-            <Text>Utility used for batching and caching data requests to a
-                  database or some other data source.
-            </Text>
-          </Appear>
-
-        </Slide>
-        <Slide>
-          <Text>How does it work?</Text>
-          <CodePane
-            lang="javascript"
-            source={require("raw-loader!../assets/code/batching/dataloader_init.example")}
-            margin="20px auto"
-            textSize="0.5em"
-          />
-        </Slide>
-        <Slide>
-          <Text>Batching and Caching</Text>
-          <CodePane
-            lang="javascript"
-            source={require("raw-loader!../assets/code/batching/dataloader_example.example")}
-            margin="20px auto"
-            textSize="0.5em"
-          />
-        </Slide>
-        <Slide>
-          <Text bold>Using DataLoader with GraphQL.</Text>
-          <List textSize={4} textColor="secondary">
-            <Appear fid="1">
-              <ListItem>Create new DataLoader per request.</ListItem>
-            </Appear>
-            <Appear fid="2">
-              <ListItem>Pass the dataloader using the GraphQL context.</ListItem>
-            </Appear>
-            <Appear fid="3">
-              <ListItem>After request has finished it is garbage collected.</ListItem>
-            </Appear>
-            <Appear fid="4">
-              <ListItem>Ensures empty cache per request.</ListItem>
-            </Appear>
-          </List>
-        </Slide>
-        <Slide>
-          <Text>The DB is happy!</Text>
-          <Layout>
-          <div style={{ display: "flex", flexDirection: "row" }}>
-          <CodePane
-            lang="javascript"
-            source={require("raw-loader!../assets/code/batching/no_batch_database_result.example")}
-            margin="20px auto"
-            textSize="0.5em"
-          />
-          <CodePane
-            lang="javascript"
-            source={require("raw-loader!../assets/code/batching/batch_database_result.example")}
-            margin="20px auto"
-            textSize="0.5em"
-          />
-          </div>
-          </Layout>
-        </Slide>
-        <Slide>
-          <Text bold>{"https://github.com/HiThereCommunity/graphql-dataloader-example"}</Text>
-        </Slide>
-        <Slide transition={["fade"]} bgColor="tertiary">
-          <Heading size={6} textColor="primary" caps>Lesson 4</Heading>
           <Text size={6} textColor="secondary">Relay Compliant Schema</Text>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
@@ -491,7 +395,7 @@ export default class Presentation extends React.Component {
             </List>
         </Slide>
         <Slide transition={["fade"]} bgColor="tertiary">
-          <Heading size={6} textColor="primary" caps>Lesson 5</Heading>
+          <Heading size={6} textColor="primary" caps>Lesson 4</Heading>
           <Text size={6} textColor="secondary">Error Handling</Text>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
@@ -605,10 +509,13 @@ export default class Presentation extends React.Component {
             <List textSize={4} textColor="secondary">
               <ListItem>Lesson 1: API, Business Logic, Persistence Layer</ListItem>
               <ListItem>Lesson 2: Authentication & Authorization</ListItem>
-              <ListItem>Lesson 3: Batching & Caching</ListItem>
-              <ListItem>Lesson 4: Relay compliant schema</ListItem>
-              <ListItem>Lesson 5: Error Handling</ListItem>
+              <ListItem>Lesson 3: Relay compliant schema</ListItem>
+              <ListItem>Lesson 4: Error Handling</ListItem>
             </List>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+            <Text bold>Last tip: Caching & Batching using DataLoader</Text>
+            <Text>{"https://github.com/HiThereCommunity/graphql-dataloader-example"}</Text>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
             <Text size={6} textColor="secondary">References & Recommendations</Text>
