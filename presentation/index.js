@@ -182,10 +182,10 @@ export default class Presentation extends React.Component {
           <Text size={6} textColor="secondary">Direct effects</Text>
           <List textColor="tertiary">
           <Appear fid="1">
-            <ListItem>Logic spread around independent graphQL resolvers: Hard to keep it synced.</ListItem>
+            <ListItem>Logic spread around independent graphQL resolvers: Hard to keep in sync.</ListItem>
           </Appear>
           <Appear fid="2">
-            <ListItem>Changes to the DB structure meant changes in many different parts of the code.</ListItem>
+            <ListItem>Changes to the DB structure means changes in many different parts of the code.</ListItem>
           </Appear>
           <Appear fid="3">
             <ListItem>Testing difficult.</ListItem>
@@ -342,6 +342,9 @@ export default class Presentation extends React.Component {
             </Appear>
             <Appear fid="6">
               <ListItem>Testability</ListItem>
+            </Appear>
+            <Appear fid="7">
+              <ListItem>Maintainable</ListItem>
             </Appear>
           </List>
         </Slide>
