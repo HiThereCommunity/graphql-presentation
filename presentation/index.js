@@ -73,7 +73,7 @@ export default class Presentation extends React.Component {
             <List>
               <ListItem>What is GraphQL?</ListItem>
               <ListItem>Why GraphQL?</ListItem>
-              <ListItem>Lessons Learned from implementing a GraphQL API by a joke machine</ListItem>
+              <ListItem>Lessons Learned from implementing a GraphQL API</ListItem>
             </List>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
@@ -132,15 +132,6 @@ export default class Presentation extends React.Component {
             </Appear>
           </List>
         </Slide>
-        <Slide>
-          <Text> Persistence: Representation of a Joke</Text>
-          <CodePane
-            lang="javascript"
-            source={require("raw-loader!../assets/code/business_logic/persistence_layer.example")}
-            margin="20px auto"
-            textSize="0.5em"
-          />
-        </Slide>
         <Slide transition={["fade"]} bgColor="primary">
           <Text size={6} textColor="secondary">Business Logic</Text>
           <List textColor="tertiary">
@@ -172,7 +163,7 @@ export default class Presentation extends React.Component {
           <Cite>graphql.org</Cite>
         </Slide>
         <Slide>
-          <Text>Connecting GraphQL to the business logic:</Text>
+          <Text bold>Connecting GraphQL to the business logic:</Text>
           <Text>Resolver functions map each graphQL field to the business logic.</Text>
         </Slide>
         <Slide>
@@ -319,34 +310,7 @@ export default class Presentation extends React.Component {
           />
         </Slide>
         <Slide>
-        <Text>Executing this query on the database</Text>
-        <Layout>
-          <div style={{ display: "flex", flexDirection: "row" }}>
-          <CodePane
-            source={require("raw-loader!../assets/code/batching/batching_user.example")}
-            margin="20px auto"
-            textSize="0.5em"
-          />
-          <CodePane
-            lang="javascript"
-            source={require("raw-loader!../assets/code/batching/no_batch_database_result.example")}
-            margin="20px auto"
-            textSize="0.5em"
-          />
-          </div>
-          </Layout>
-        </Slide>
-        <Slide>
-          <Text>Business Logic Implementation</Text>
-          <CodePane
-            lang="javascript"
-            source={require("raw-loader!../assets/code/batching/user_model_no_batching_gen.example")}
-            margin="20px auto"
-            textSize="0.5em"
-          />
-        </Slide>
-        <Slide>
-        <Text>Problem: Resolvers are independent functions. Each make a DB call!</Text>
+        <Text>Problem: Resolvers are independent functions.</Text>
         <Layout>
           <div style={{ display: "flex", flexDirection: "row" }}>
           <CodePane
@@ -391,27 +355,21 @@ export default class Presentation extends React.Component {
           />
         </Slide>
         <Slide>
-          <Text bold>Pass DataLoader using the GraphQL context.</Text>
+          <Text bold>Using DataLoader with GraphQL.</Text>
           <List textSize={4} textColor="secondary">
             <Appear fid="1">
               <ListItem>Create new DataLoader per request.</ListItem>
             </Appear>
             <Appear fid="2">
-              <ListItem>After request has finished it is garbage collected.</ListItem>
+              <ListItem>Pass the dataloader using the GraphQL context.</ListItem>
             </Appear>
             <Appear fid="3">
+              <ListItem>After request has finished it is garbage collected.</ListItem>
+            </Appear>
+            <Appear fid="4">
               <ListItem>Ensures empty cache per request.</ListItem>
             </Appear>
           </List>
-        </Slide>
-        <Slide>
-          <Text>Business Logic</Text>
-          <CodePane
-            lang="javascript"
-            source={require("raw-loader!../assets/code/batching/user_model_batching_gen.example")}
-            margin="20px auto"
-            textSize="0.5em"
-          />
         </Slide>
         <Slide>
           <Text>The DB is happy!</Text>
@@ -431,6 +389,9 @@ export default class Presentation extends React.Component {
           />
           </div>
           </Layout>
+        </Slide>
+        <Slide>
+          <Text bold>{"https://github.com/HiThereCommunity/graphql-dataloader-example"}</Text>
         </Slide>
         <Slide transition={["fade"]} bgColor="tertiary">
           <Heading size={6} textColor="primary" caps>Lesson 4</Heading>
