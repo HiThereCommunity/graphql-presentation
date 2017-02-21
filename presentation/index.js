@@ -384,41 +384,16 @@ export default class Presentation extends React.Component {
           />
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
-          <Text size={6} textColor="secondary">Opportunity to change to Relay if you wish</Text>
-        </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-            <Text size={6} textColor="secondary">Overview</Text>
+            <Text size={6} textColor="secondary">Advantages Relay Compliant Schema</Text>
             <List textSize={4} textColor="secondary">
               <ListItem>Enforce globally unique id that is opaque</ListItem>
               <ListItem>Any resource that belongs to you can be retrieved using a single query</ListItem>
               <ListItem>Pagination for lists is built in</ListItem>
-              <ListItem>Opportunity to change to Relay if you wish</ListItem>
             </List>
         </Slide>
         <Slide transition={["fade"]} bgColor="tertiary">
           <Heading size={6} textColor="primary" caps>Lesson 4</Heading>
           <Text size={6} textColor="secondary">Error Handling</Text>
-        </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-          <Text size={6} textColor="secondary">Production vs Development</Text>
-        </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-          <Text size={6} textColor="secondary">Undesired Production GraphQL Error Response</Text>
-          <CodePane
-            lang="javascript"
-            source={require("raw-loader!../assets/code/errorHandling/devGraphQLResponse.example")}
-            margin="20px auto"
-            textSize="0.5em"
-          />
-        </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-          <Text size={6} textColor="secondary">Updated GraphQL Error Response</Text>
-          <CodePane
-            lang="javascript"
-            source={require("raw-loader!../assets/code/errorHandling/prodGraphQLResponse.example")}
-            margin="20px auto"
-            textSize="0.5em"
-          />
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
           <Text size={6} textColor="secondary">The Need for Distinct Error Types</Text>
@@ -433,7 +408,13 @@ export default class Presentation extends React.Component {
           />
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
-            <Text size={6} textColor="secondary">Four Error Types</Text>
+            <Text size={6} textColor="secondary">Identify Four Distinct Error Types</Text>
+            <List textSize={4} textColor="secondary">
+              <ListItem>Syntax / Type Errors</ListItem>
+              <ListItem>Runtime Errors</ListItem>
+              <ListItem>User Errors that dont need to be parsed by the client</ListItem>
+              <ListItem>User Errors that need to be parsed by the client</ListItem>
+            </List>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
           <Text size={6} textColor="secondary">1. Syntax / Type Errors</Text>
@@ -481,13 +462,6 @@ export default class Presentation extends React.Component {
           <Text size={6} textColor="secondary">4. User Errors that need to be parsed by the client</Text>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
-          <Text size={5} textColor="secondary">Examples</Text>
-          <List textSize={4} textColor="secondary">
-            <ListItem>Duplicate jokes</ListItem>
-            <ListItem>Usage of swearwords</ListItem>
-          </List>
-        </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
           <Text size={5} textColor="secondary">Solution: Add fields</Text>
           <CodePane
             lang="javascript"
@@ -499,7 +473,6 @@ export default class Presentation extends React.Component {
         <Slide transition={["fade"]} bgColor="primary">
             <Text size={6} textColor="secondary">Lessons</Text>
             <List textSize={4} textColor="secondary">
-              <ListItem>Dont expose stack traces in production</ListItem>
               <ListItem>Hide internal server errors from client</ListItem>
               <ListItem>Define custom ClientError class for error messages that you would like to expose to client</ListItem>
               <ListItem>Include data that clients need to parse inside payload</ListItem>
