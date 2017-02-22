@@ -230,7 +230,7 @@ export default class Presentation extends React.Component {
           <Text size={6} textColor="secondary">Direct effects</Text>
           <List textColor="tertiary">
           <Appear fid="1">
-            <ListItem>Logic spread around independent graphQL resolvers: Hard to keep in sync.</ListItem>
+            <ListItem>Logic spread around independent GraphQL resolvers: Hard to keep in sync.</ListItem>
           </Appear>
           <Appear fid="2">
             <ListItem>Changes to the DB structure means changes in many different parts of the code.</ListItem>
@@ -353,32 +353,26 @@ export default class Presentation extends React.Component {
             textSize="0.5em"
           />
         </Slide>
-        <Slide>
-          <Text>Mutation response</Text>
-          <CodePane
-            lang="javascript"
-            source={require("raw-loader!../assets/code/business_logic/mutation_response.example")}
-            margin="20px auto"
-            textSize="0.5em"
-          />
-        </Slide>
-        <Slide>
-          <Text>Create mutation</Text>
-          <CodePane
-            source={require("raw-loader!../assets/code/business_logic/joke_create_mutation.example")}
-            margin="20px auto"
-            textSize="0.5em"
-          />
-        </Slide>
-        <Slide>
-          <Text>GraphQL implementation</Text>
-          <CodePane
-            lang="js"
-            source={require("raw-loader!../assets/code/business_logic/mutation_create_simple.example")}
-            margin="20px auto"
-            textSize="0.5em"
-          />
-        </Slide>
+        {
+        // <Slide>
+        //   <Text>Create mutation</Text>
+        //   <CodePane
+        //     source={require("raw-loader!../assets/code/business_logic/joke_create_mutation.example")}
+        //     margin="20px auto"
+        //     textSize="0.5em"
+        //   />
+        // </Slide>
+        // <Slide>
+        //   <Text>GraphQL implementation</Text>
+        //   <CodePane
+        //     lang="js"
+        //     source={require("raw-loader!../assets/code/business_logic/mutation_create_simple.example")}
+        //     margin="20px auto"
+        //     textSize="0.5em"
+        //   />
+        // </Slide>
+        //
+      }
         <Slide>
           <Text>Single source of truth for validation.</Text>
           <CodePane
@@ -395,21 +389,9 @@ export default class Presentation extends React.Component {
               <ListItem>Single source of truth for enforcing business rules.</ListItem>
             </Appear>
             <Appear fid="2">
-              <ListItem>Prevent logic to be spread around independent graphQL resolvers in system.</ListItem>
-            </Appear>
-            <Appear fid="3">
-              <ListItem>Connection to database encoded in logic, not GraphQL resolver.</ListItem>
-            </Appear>
-            <Appear fid="4">
-              <ListItem>Allows DB type to be changed easily.</ListItem>
-            </Appear>
-            <Appear fid="5">
-              <ListItem>Allows API protocol to be changed easily.</ListItem>
-            </Appear>
-            <Appear fid="6">
               <ListItem>Testability</ListItem>
             </Appear>
-            <Appear fid="7">
+            <Appear fid="3">
               <ListItem>Maintainable</ListItem>
             </Appear>
           </List>
@@ -452,7 +434,7 @@ export default class Presentation extends React.Component {
           />
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
-          <Text size={6} textColor="secondary">The Result</Text>
+          <Text size={6} bold textColor="secondary">The Result</Text>
           <List textSize={4} textColor="secondary">
             <ListItem>Caching becomes simple</ListItem>
             <ListItem>Database assumptions opaque to client</ListItem>
@@ -486,7 +468,7 @@ export default class Presentation extends React.Component {
           />
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
-          <Text size={6} textColor="secondary">Why Pagination?</Text>
+          <Text size={6} bold textColor="secondary">Why Pagination?</Text>
           <List textSize={4} textColor="secondary">
             <ListItem>More fine-grained control</ListItem>
             <ListItem>Prevents app from being slow</ListItem>
@@ -506,7 +488,7 @@ export default class Presentation extends React.Component {
           <Text size={6} textColor="secondary">Opportunity to change to Relay if you wish</Text>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
-            <Text size={6} textColor="secondary">Advantages Relay Compliant Schema</Text>
+            <Text size={6} bold textColor="secondary">Advantages Relay Compliant Schema</Text>
             <List textSize={4} textColor="secondary">
               <ListItem>Enforce globally unique id that is opaque</ListItem>
               <ListItem>Any resource that belongs to you can be retrieved using a single query</ListItem>
@@ -527,16 +509,6 @@ export default class Presentation extends React.Component {
               <ListItem>Authentication</ListItem>
               <ListItem>Caching & Batching</ListItem>
               <ListItem>Error Handling</ListItem>
-            </List>
-        </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-            <Text bold>Last tip: Caching & Batching using DataLoader</Text>
-            <Text>{"https://github.com/HiThereCommunity/graphql-dataloader-example"}</Text>
-        </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-            <Text size={6} textColor="secondary">References & Recommendations</Text>
-            <List textSize={4} textColor="tertiary">
-              <ListItem>React-Europe 2016 talk Dan Schafer</ListItem>
             </List>
         </Slide>
         <Slide transition={["fade"]} bgColor="tertiary">

@@ -6,7 +6,7 @@ const mutation = {
         funnyLevel: { type: new GraphQLNonNull(GraphQLInt) }
     },
     resolve: async (root, args) => {
-      if (text.length == 0) throw new Error('Please provide a joke');
+      if (args.text.length == 0) throw new Error('Please provide a joke');
       if (args.funnyLevel < 0 || args.funnyLevel > 5)
         throw new Error('Invalid funny level.');
 
