@@ -60,9 +60,9 @@ export default class Presentation extends React.Component {
           </Heading>
         </Slide>
         <Slide transition={["fade"]} bgColor="tertiary">
-          <Heading size={6} textColor="primary" caps>Dirk-Jan</Heading>
+          <Heading size={6} textColor="primary">Dirk-Jan @excite-engineer</Heading>
           <Text size={4} margin={30} textColor="secondary">Dirk is a Software Engineer with a focus on Javascript who gets (way too) excited about writing stable and well tested code. GraphQL fan.</Text>
-          <Heading size={6} textColor="primary" caps>Florentijn</Heading>
+          <Heading size={6} textColor="primary">Florentijn @Mr_Blue_Sql</Heading>
           <Text size={4} margin={30} textColor="secondary">GraphQL enthusiast. Focusing on Javascript and realizing highly available, easy to maintain solutions on AWS. I like giving high fives.</Text>
         </Slide>
         <Slide transition={["fade"]} bgColor="tertiary">
@@ -572,6 +572,11 @@ export default class Presentation extends React.Component {
             <List textSize={4} textColor="tertiary">
               <ListItem>React-Europe 2016 talk Dan Schafer</ListItem>
             </List>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="tertiary">
+          <Heading size={6} textColor="primary">Reach us on twitter!</Heading>
+          <Text size={6} textColor="primary">@excite-engineer</Text>
+          <Text size={6} textColor="primary">@Mr_Blue_Sql</Text>
         </Slide>
         <Slide transition={["fade"]} bgColor="tertiary">
           <Heading size={6} textColor="primary">Thanks!</Heading>
