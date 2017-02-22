@@ -1,5 +1,5 @@
 "data" {
-  "user" {
+  "viewer" {
     "jokes": [
       {
         "id": "1",
