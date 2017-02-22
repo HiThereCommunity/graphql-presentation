@@ -140,6 +140,11 @@ export default class Presentation extends React.Component {
         <Slide>
           <Text>Result</Text>
           <CodePane
+            source={require("raw-loader!../assets/code/business_logic/joke_query.example")}
+            margin="20px auto"
+            textSize="0.5em"
+          />
+          <CodePane
             lang="javascript"
             source={require("raw-loader!../assets/code/business_logic/joke_response.example")}
             margin="20px auto"
@@ -155,6 +160,15 @@ export default class Presentation extends React.Component {
           />
         </Slide>
         <Slide>
+          <Text>Implementation in GraphQL</Text>
+          <CodePane
+            lang="javascript"
+            source={require("raw-loader!../assets/code/business_logic/mutation_initial_1.example")}
+            margin="20px auto"
+            textSize="0.5em"
+          />
+        </Slide>
+        <Slide>
           <Text>Duplicate database logic</Text>
           <CodePane
             lang="javascript"
@@ -162,6 +176,21 @@ export default class Presentation extends React.Component {
             margin="20px auto"
             textSize="0.5em"
           />
+        </Slide>
+        <Slide>
+          <Text>Result</Text>
+         <CodePane
+           lang="javascript"
+           source={require("raw-loader!../assets/code/business_logic/joke_update_mutation.example")}
+           margin="20px auto"
+           textSize="0.5em"
+         />
+         <CodePane
+           lang="javascript"
+           source={require("raw-loader!../assets/code/business_logic/mutation_response.example")}
+           margin="20px auto"
+           textSize="0.5em"
+         />
         </Slide>
         <Slide>
           <Text>Create joke mutation</Text>
@@ -298,6 +327,15 @@ export default class Presentation extends React.Component {
           />
         </Slide>
         <Slide>
+          <Text>Before the split</Text>
+          <CodePane
+            lang="javascript"
+            source={require("raw-loader!../assets/code/business_logic/mutation_initial.example")}
+            margin="20px auto"
+            textSize="0.5em"
+          />
+        </Slide>
+        <Slide>
           <Text>Implementation in GraphQL</Text>
           <CodePane
             lang="javascript"
@@ -306,7 +344,7 @@ export default class Presentation extends React.Component {
             textSize="0.5em"
           />
         </Slide>
-        <Slide>
+        <Slide transitionDuration={0}>
           <Text>Single source of truth DB.</Text>
           <CodePane
             lang="javascript"
@@ -328,6 +366,15 @@ export default class Presentation extends React.Component {
           <Text>Create mutation</Text>
           <CodePane
             source={require("raw-loader!../assets/code/business_logic/joke_create_mutation.example")}
+            margin="20px auto"
+            textSize="0.5em"
+          />
+        </Slide>
+        <Slide>
+          <Text>GraphQL implementation</Text>
+          <CodePane
+            lang="js"
+            source={require("raw-loader!../assets/code/business_logic/mutation_create_simple.example")}
             margin="20px auto"
             textSize="0.5em"
           />

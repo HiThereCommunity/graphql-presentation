@@ -9,7 +9,7 @@ const mutation = {
       if (args.funnyLevel < 0 || args.funnyLevel > 5)
         throw new Error('Invalid funny level.');
 
-      const data = await db.joke.findById(id);
+      const data = await db.joke.findById(args.jokeId);
       if (data == null) throw new Error('No joke exists for the id');
 
       data.funnyLevel = funnyLevel;

@@ -10,7 +10,7 @@ const mutation = {
       if (args.funnyLevel < 0 || args.funnyLevel > 5)
         throw new Error('Invalid funny level.');
 
-      const newJoke = db.joke.create({
+      const newJoke = await db.joke.create({
         text: args.text,
         funnyLevel: args.funnyLevel
       });
