@@ -380,7 +380,7 @@ export default class Presentation extends React.Component {
           </Appear>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
-          <Text size={6} textColor="secondary">Refetching</Text>
+          <Text size={6} textColor="secondary">Client Side Caching</Text>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
           <Text size={6} textColor="secondary">Joke Query</Text>
@@ -413,6 +413,9 @@ export default class Presentation extends React.Component {
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
           <Text size={6} textColor="secondary">... and every object can easily be refetched</Text>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Text size={6} textColor="secondary">Refetching</Text>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
           <Text size={6} textColor="secondary">Retrieve resource using single query</Text>
@@ -453,98 +456,15 @@ export default class Presentation extends React.Component {
           />
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
+          <Text size={6} textColor="secondary">Opportunity to change to Relay if you wish</Text>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
             <Text size={6} textColor="secondary">Advantages Relay Compliant Schema</Text>
             <List textSize={4} textColor="secondary">
               <ListItem>Enforce globally unique id that is opaque</ListItem>
               <ListItem>Any resource that belongs to you can be retrieved using a single query</ListItem>
               <ListItem>Pagination for lists is built in</ListItem>
-            </List>
-        </Slide>
-        <Slide transition={["fade"]} bgColor="tertiary">
-          <Heading size={6} textColor="primary" caps>Lesson 3</Heading>
-          <Text size={6} textColor="secondary">Error Handling</Text>
-        </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-          <Text size={6} textColor="secondary">The Need for Distinct Error Types</Text>
-        </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-          <Text size={6} textColor="secondary">User Errors vs Internal Errors</Text>
-          <CodePane
-            lang="javascript"
-            source={require("raw-loader!../assets/code/errorHandling/userVersusInternalError.example")}
-            margin="20px auto"
-            textSize="0.6em"
-          />
-        </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-            <Text size={6} textColor="secondary">Identify Four Distinct Error Types</Text>
-            <List textSize={4} textColor="secondary">
-              <ListItem>Syntax / Type Errors</ListItem>
-              <ListItem>Runtime Errors</ListItem>
-              <ListItem>User Errors that dont need to be parsed by the client</ListItem>
-              <ListItem>User Errors that need to be parsed by the client</ListItem>
-            </List>
-        </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-          <Text size={6} textColor="secondary">1. Syntax / Type Errors</Text>
-          <CodePane
-            lang="javascript"
-            source={require("raw-loader!../assets/code/errorHandling/syntaxGraphQLError.example")}
-            margin="20px auto"
-            textSize="0.5em"
-          />
-        </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-          <Text size={6} textColor="secondary">2. Runtime Errors</Text>
-          <CodePane
-            lang="javascript"
-            source={require("raw-loader!../assets/code/errorHandling/runTimeError.example")}
-            margin="20px auto"
-            textSize="0.5em"
-          />
-        </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-          <Text size={6} textColor="secondary">3. User Errors that dont need to be parsed by the client</Text>
-        </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-          <Text size={6} textColor="secondary">Introduce Client Error Class</Text>
-        </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-          <Text size={5} textColor="secondary">Client Error Usage</Text>
-          <CodePane
-            lang="javascript"
-            source={require("raw-loader!../assets/code/errorHandling/userErrorSolution.example")}
-            margin="20px auto"
-            textSize="0.5em"
-          />
-        </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-          <Text size={5} textColor="secondary">Client Error Response</Text>
-          <CodePane
-            lang="javascript"
-            source={require("raw-loader!../assets/code/errorHandling/errorFormatterOutput.example")}
-            margin="20px auto"
-            textSize="0.5em"
-          />
-        </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-          <Text size={6} textColor="secondary">4. User Errors that need to be parsed by the client</Text>
-        </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-          <Text size={5} textColor="secondary">Solution: Add fields</Text>
-          <CodePane
-            lang="javascript"
-            source={require("raw-loader!../assets/code/errorHandling/userInputValidationError.example")}
-            margin="20px auto"
-            textSize="0.5em"
-          />
-        </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-            <Text size={6} textColor="secondary">Lessons</Text>
-            <List textSize={4} textColor="secondary">
-              <ListItem>Hide internal server errors from client</ListItem>
-              <ListItem>Define custom ClientError class for error messages that you would like to expose to client</ListItem>
-              <ListItem>Include data that clients need to parse inside payload</ListItem>
+              <ListItem>Opportunity to change to Relay if you wish</ListItem>
             </List>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
@@ -552,7 +472,14 @@ export default class Presentation extends React.Component {
             <List textSize={4} textColor="secondary">
               <ListItem>Lesson 1: API, Business Logic, Persistence Layer</ListItem>
               <ListItem>Lesson 2: Relay compliant schema</ListItem>
-              <ListItem>Lesson 3: Error Handling</ListItem>
+            </List>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+            <Text size={6} textColor="secondary">More Lessons</Text>
+            <List textSize={4} textColor="secondary">
+              <ListItem>Authentication</ListItem>
+              <ListItem>Caching & Batching</ListItem>
+              <ListItem>Error Handling</ListItem>
             </List>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
