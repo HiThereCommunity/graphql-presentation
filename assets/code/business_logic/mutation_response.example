@@ -1,7 +1,7 @@
 {
   "errors": [
     {
-      "message": "Funny level 10? Be honest, no joke is that funny.",
+      "message": "Invalid funny level",
     }
   ]
 }

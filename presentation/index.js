@@ -60,9 +60,9 @@ export default class Presentation extends React.Component {
           </Heading>
         </Slide>
         <Slide transition={["fade"]} bgColor="tertiary">
-          <Heading size={6} textColor="primary" caps>Dirk-Jan</Heading>
+          <Heading size={6} textColor="primary">Dirk-Jan @excite-engineer</Heading>
           <Text size={4} margin={30} textColor="secondary">Dirk is a Software Engineer with a focus on Javascript who gets (way too) excited about writing stable and well tested code. GraphQL fan.</Text>
-          <Heading size={6} textColor="primary" caps>Florentijn</Heading>
+          <Heading size={6} textColor="primary">Florentijn @Mr_Blue_Sql</Heading>
           <Text size={4} margin={30} textColor="secondary">GraphQL enthusiast. Focusing on Javascript and realizing highly available, easy to maintain solutions on AWS. I like giving high fives.</Text>
         </Slide>
         <Slide transition={["fade"]} bgColor="tertiary">
@@ -92,46 +92,127 @@ export default class Presentation extends React.Component {
           <Heading size={6} textColor="primary" caps>Lesson 1</Heading>
           <Text size={6} textColor="secondary">Separation of concerns</Text>
         </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-          <Image src={images.businessLogic} />
-          <Cite>graphql.org</Cite>
-        </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-          <Text size={6} textColor="secondary">GraphQL</Text>
-          <List textColor="tertiary">
-            <Appear fid="1">
-              <ListItem>Defines the API interface</ListItem>
-            </Appear>
-            <Appear fid="2">
-              <ListItem>Performs query validation</ListItem>
-            </Appear>
-            <Appear fid="3">
-              <ListItem>Very thin layer around your business logic</ListItem>
-            </Appear>
-          </List>
+        <Slide>
+          <Text>Query Joke</Text>
+          <CodePane
+            source={require("raw-loader!../assets/code/business_logic/joke_query.example")}
+            margin="20px auto"
+            textSize="0.5em"
+          />
         </Slide>
         <Slide>
-          <Text> GraphQL: Representation of a Joke</Text>
+          <Text>Implement the query</Text>
           <CodePane
             lang="javascript"
-            source={require("raw-loader!../assets/code/business_logic/graphql_layer.example")}
+            source={require("raw-loader!../assets/code/business_logic/query_initial.example")}
+            margin="20px auto"
+            textSize="0.5em"
+          />
+        </Slide>
+        <Slide>
+          <Text>Implement the Joke object type.</Text>
+          <CodePane
+            lang="javascript"
+            source={require("raw-loader!../assets/code/business_logic/resolver_class_initial.example")}
+            margin="20px auto"
+            textSize="0.5em"
+          />
+        </Slide>
+        <Slide>
+          <Text>Result</Text>
+          <CodePane
+            lang="javascript"
+            source={require("raw-loader!../assets/code/business_logic/joke_response.example")}
+            margin="20px auto"
+            textSize="0.5em"
+          />
+        </Slide>
+        <Slide>
+          <Text>Update joke mutation</Text>
+          <CodePane
+            source={require("raw-loader!../assets/code/business_logic/joke_update_mutation.example")}
+            margin="20px auto"
+            textSize="0.5em"
+          />
+        </Slide>
+        <Slide>
+          <Text>Duplicate database logic</Text>
+          <CodePane
+            lang="javascript"
+            source={require("raw-loader!../assets/code/business_logic/mutation_initial.example")}
+            margin="20px auto"
+            textSize="0.5em"
+          />
+        </Slide>
+        <Slide>
+          <Text>Create joke mutation</Text>
+          <CodePane
+            source={require("raw-loader!../assets/code/business_logic/joke_create_mutation.example")}
+            margin="20px auto"
+            textSize="0.5em"
+          />
+        </Slide>
+        <Slide>
+          <Text>Duplicate validation logic</Text>
+          <CodePane
+            lang="javascript"
+            source={require("raw-loader!../assets/code/business_logic/mutation_create_initial.example")}
             margin="20px auto"
             textSize="0.5em"
           />
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
-          <Text size={6} textColor="secondary">Persistence</Text>
+          <Text size={6} textColor="secondary">Building out the schema</Text>
           <List textColor="tertiary">
             <Appear fid="1">
-              <ListItem>Responsible for low level database details</ListItem>
+              <ListItem>Retrieve a list of jokes</ListItem>
             </Appear>
             <Appear fid="2">
-              <ListItem>Handles connections, database errors</ListItem>
+              <ListItem>Delete a joke</ListItem>
             </Appear>
             <Appear fid="3">
-              <ListItem>Defines the database schema</ListItem>
+              <ListItem>...</ListItem>
             </Appear>
           </List>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Text size={6} textColor="secondary">Duplicate database and validation logic across the system</Text>
+        </Slide>
+        <Slide>
+          <Text size={6} textColor="secondary">Direct effects</Text>
+          <List textColor="tertiary">
+          <Appear fid="1">
+            <ListItem>Logic spread around independent graphQL resolvers: Hard to keep in sync.</ListItem>
+          </Appear>
+          <Appear fid="2">
+            <ListItem>Changes to the DB structure means changes in many different parts of the code.</ListItem>
+          </Appear>
+          <Appear fid="3">
+            <ListItem>Testing difficult.</ListItem>
+          </Appear>
+          <Appear fid="4">
+            <ListItem>Hard to maintain.</ListItem>
+          </Appear>
+          <Appear fid="5">
+            <ListItem>Less developer overview.</ListItem>
+          </Appear>
+          </List>
+        </Slide>
+        <Slide>
+          <Text size={6} textColor="secondary">Long term issues: Inflexibility</Text>
+          <List textColor="tertiary">
+          <Appear fid="1">
+            <ListItem>{"Hard to switch from GraphQL to other API protocol."}</ListItem>
+          </Appear>
+          <Appear fid="2">
+            <ListItem>{"Hard to switch to other DB type."}</ListItem>
+          </Appear>
+          </List>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Text size={6} textColor="secondary">The solution! Separation</Text>
+          <Image src={images.businessLogic} />
+          <Cite>graphql.org</Cite>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
           <Text size={6} textColor="secondary">Business Logic</Text>
@@ -151,21 +232,8 @@ export default class Presentation extends React.Component {
           </List>
         </Slide>
         <Slide>
-          <Text>Business logic Layer</Text>
-          <CodePane
-            lang="javascript"
-            source={require("raw-loader!../assets/code/business_logic/logic_example.example")}
-            margin="20px auto"
-            textSize="0.5em"
-          />
-        </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-          <Image src={images.businessLogic} />
-          <Cite>graphql.org</Cite>
-        </Slide>
-        <Slide>
           <Text bold>Connecting GraphQL to the business logic:</Text>
-          <Text>Resolver functions map each graphQL field to the business logic.</Text>
+          <Text>Resolver functions maps directly to the business logic.</Text>
         </Slide>
         <Slide>
           <Text>Example 1: Query Joke</Text>
@@ -176,7 +244,16 @@ export default class Presentation extends React.Component {
           />
         </Slide>
         <Slide>
-          <Text>Implement the query</Text>
+          <Text>Before the split</Text>
+          <CodePane
+            lang="javascript"
+            source={require("raw-loader!../assets/code/business_logic/query_initial.example")}
+            margin="20px auto"
+            textSize="0.5em"
+          />
+        </Slide>
+        <Slide>
+          <Text>After the split</Text>
           <CodePane
             lang="javascript"
             source={require("raw-loader!../assets/code/business_logic/query_simple.example")}
@@ -185,27 +262,18 @@ export default class Presentation extends React.Component {
           />
         </Slide>
         <Slide>
-          <Text>Link type GraphQLJoke to Logic</Text>
+          <Text>Business logic Layer</Text>
           <CodePane
             lang="javascript"
-            source={require("raw-loader!../assets/code/business_logic/resolver_class_link.example")}
+            source={require("raw-loader!../assets/code/business_logic/logic_example.example")}
             margin="20px auto"
             textSize="0.5em"
           />
         </Slide>
         <Slide>
-          <Text>Result</Text>
+          <Text>Example 2: Mutation to update a joke</Text>
           <CodePane
-            lang="javascript"
-            source={require("raw-loader!../assets/code/business_logic/joke_response.example")}
-            margin="20px auto"
-            textSize="0.5em"
-          />
-        </Slide>
-        <Slide>
-          <Text>Example 2: Mutation to create a joke</Text>
-          <CodePane
-            source={require("raw-loader!../assets/code/business_logic/joke_mutation.example")}
+            source={require("raw-loader!../assets/code/business_logic/joke_update_mutation.example")}
             margin="20px auto"
             textSize="0.5em"
           />
@@ -220,7 +288,7 @@ export default class Presentation extends React.Component {
           />
         </Slide>
         <Slide>
-          <Text>Business logic performs input validation.</Text>
+          <Text>Single source of truth DB.</Text>
           <CodePane
             lang="javascript"
             source={require("raw-loader!../assets/code/business_logic/logic_mutation.example")}
@@ -233,6 +301,23 @@ export default class Presentation extends React.Component {
           <CodePane
             lang="javascript"
             source={require("raw-loader!../assets/code/business_logic/mutation_response.example")}
+            margin="20px auto"
+            textSize="0.5em"
+          />
+        </Slide>
+        <Slide>
+          <Text>Create mutation</Text>
+          <CodePane
+            source={require("raw-loader!../assets/code/business_logic/joke_create_mutation.example")}
+            margin="20px auto"
+            textSize="0.5em"
+          />
+        </Slide>
+        <Slide>
+          <Text>Single source of truth for validation.</Text>
+          <CodePane
+            lang="javascript"
+            source={require("raw-loader!../assets/code/business_logic/logic_final.example")}
             margin="20px auto"
             textSize="0.5em"
           />
@@ -259,47 +344,12 @@ export default class Presentation extends React.Component {
               <ListItem>Testability</ListItem>
             </Appear>
             <Appear fid="7">
-              <ListItem>Reuse logic across multiple schemas</ListItem>
+              <ListItem>Maintainable</ListItem>
             </Appear>
           </List>
         </Slide>
         <Slide transition={["fade"]} bgColor="tertiary">
           <Heading size={6} textColor="primary" caps>Lesson 2</Heading>
-          <Text size={6} textColor="secondary">Authorization</Text>
-        </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-          <Image src={images.businessLogic} />
-          <Cite>graphql.org</Cite>
-        </Slide>
-        <Slide>
-          <Text> Single source of truth for authorization</Text>
-          <CodePane
-            lang="javascript"
-            source={require("raw-loader!../assets/code/authorization/authorization.example")}
-            margin="20px auto"
-            textSize="0.5em"
-          />
-        </Slide>
-        <Slide>
-          <Text> Viewer is contained in context </Text>
-          <CodePane
-            lang="javascript"
-            source={require("raw-loader!../assets/code/authorization/graphql_endpoint.example")}
-            margin="20px auto"
-            textSize="0.5em"
-          />
-        </Slide>
-        <Slide>
-          <Text> Viewer is now available in GraphQL</Text>
-          <CodePane
-            lang="javascript"
-            source={require("raw-loader!../assets/code/authorization/query_authenticated.example")}
-            margin="20px auto"
-            textSize="0.5em"
-          />
-        </Slide>
-        <Slide transition={["fade"]} bgColor="tertiary">
-          <Heading size={6} textColor="primary" caps>Lesson 3</Heading>
           <Text size={6} textColor="secondary">Relay Compliant Schema</Text>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
@@ -392,7 +442,7 @@ export default class Presentation extends React.Component {
             </List>
         </Slide>
         <Slide transition={["fade"]} bgColor="tertiary">
-          <Heading size={6} textColor="primary" caps>Lesson 4</Heading>
+          <Heading size={6} textColor="primary" caps>Lesson 3</Heading>
           <Text size={6} textColor="secondary">Error Handling</Text>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
@@ -482,9 +532,8 @@ export default class Presentation extends React.Component {
             <Text size={6} textColor="secondary">To Sum Up</Text>
             <List textSize={4} textColor="secondary">
               <ListItem>Lesson 1: API, Business Logic, Persistence Layer</ListItem>
-              <ListItem>Lesson 2: Authentication & Authorization</ListItem>
-              <ListItem>Lesson 3: Relay compliant schema</ListItem>
-              <ListItem>Lesson 4: Error Handling</ListItem>
+              <ListItem>Lesson 2: Relay compliant schema</ListItem>
+              <ListItem>Lesson 3: Error Handling</ListItem>
             </List>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
@@ -496,6 +545,11 @@ export default class Presentation extends React.Component {
             <List textSize={4} textColor="tertiary">
               <ListItem>React-Europe 2016 talk Dan Schafer</ListItem>
             </List>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="tertiary">
+          <Heading size={6} textColor="primary">Reach us on twitter!</Heading>
+          <Text size={6} textColor="primary">@excite-engineer</Text>
+          <Text size={6} textColor="primary">@Mr_Blue_Sql</Text>
         </Slide>
         <Slide transition={["fade"]} bgColor="tertiary">
           <Heading size={6} textColor="primary">Thanks!</Heading>
