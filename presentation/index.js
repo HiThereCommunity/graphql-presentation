@@ -73,7 +73,6 @@ export default class Presentation extends React.Component {
             <Text size={6} textColor="secondary">Agenda</Text>
             <List>
               <ListItem>What is GraphQL?</ListItem>
-              <ListItem>Why GraphQL?</ListItem>
               <ListItem>Lessons Learned from implementing a GraphQL API</ListItem>
             </List>
         </Slide>
@@ -84,6 +83,26 @@ export default class Presentation extends React.Component {
           <Appear fid="2">
             <Text>A query language for your API</Text>
           </Appear>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={6} textColor="secondary">Properties</Heading>
+          <List>
+          <Appear fid="1">
+            <ListItem>Client controls data, not the server</ListItem>
+          </Appear>
+          <Appear fid="1">
+            <ListItem>Multiple resources in a single request</ListItem>
+          </Appear>
+          <Appear fid="1">
+            <ListItem>Documentation is awesome</ListItem>
+          </Appear>
+          <Appear fid="1">
+            <ListItem>Type system</ListItem>
+          </Appear>
+          <Appear fid="1">
+            <ListItem>Developer tools: GraphiQL</ListItem>
+          </Appear>
+          </List>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
             <Text size={6} textColor="secondary">GraphQL Demo</Text>
