@@ -5,7 +5,7 @@ const mutation = {
         jokeId: { type: new GraphQLNonNull(GraphQLID) },
         funnyLevel: { type: new GraphQLNonNull(GraphQLInt) }
     },
-    resolve: (root, args) => {
+    resolve: (root, args, context) => {
       //...
     }
 }

@@ -7,5 +7,6 @@ const mutation = {
         jokeId: { type: new GraphQLNonNull(GraphQLID) },
         funnyLevel: { type: new GraphQLNonNull(GraphQLInt) }
     },
-    resolve: (root, args) => Joke.update(args.jokeId, args.funnyLevel)
+    resolve: (root, args, context) =>
+      Joke.update(context.viewer, args.jokeId, args.funnyLevel)
 }

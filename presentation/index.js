@@ -129,6 +129,15 @@ export default class Presentation extends React.Component {
           />
         </Slide>
         <Slide>
+          <Text>Authorization: Joke can only be retrieved by creator</Text>
+          <CodePane
+            lang="javascript"
+            source={require("raw-loader!../assets/code/business_logic/query_initial_authorization.example")}
+            margin="20px auto"
+            textSize="0.5em"
+          />
+        </Slide>
+        <Slide>
           <Text>Implement the Joke object type.</Text>
           <CodePane
             lang="javascript"
@@ -169,7 +178,7 @@ export default class Presentation extends React.Component {
           />
         </Slide>
         <Slide>
-          <Text>Duplicate database logic</Text>
+          <Text>Duplicate authorization logic</Text>
           <CodePane
             lang="javascript"
             source={require("raw-loader!../assets/code/business_logic/mutation_initial.example")}
@@ -180,7 +189,6 @@ export default class Presentation extends React.Component {
         <Slide>
           <Text>Result</Text>
          <CodePane
-           lang="javascript"
            source={require("raw-loader!../assets/code/business_logic/joke_update_mutation.example")}
            margin="20px auto"
            textSize="0.5em"
@@ -192,23 +200,6 @@ export default class Presentation extends React.Component {
            textSize="0.5em"
          />
         </Slide>
-        <Slide>
-          <Text>Create joke mutation</Text>
-          <CodePane
-            source={require("raw-loader!../assets/code/business_logic/joke_create_mutation.example")}
-            margin="20px auto"
-            textSize="0.5em"
-          />
-        </Slide>
-        <Slide>
-          <Text>Duplicate validation logic</Text>
-          <CodePane
-            lang="javascript"
-            source={require("raw-loader!../assets/code/business_logic/mutation_create_initial.example")}
-            margin="20px auto"
-            textSize="0.5em"
-          />
-        </Slide>
         <Slide transition={["fade"]} bgColor="primary">
           <Text size={6} textColor="secondary">Building out the schema</Text>
           <List textColor="tertiary">
@@ -218,13 +209,16 @@ export default class Presentation extends React.Component {
             <Appear fid="2">
               <ListItem>Delete a joke</ListItem>
             </Appear>
+            <Appear fid="2">
+              <ListItem>Create a joke</ListItem>
+            </Appear>
             <Appear fid="3">
               <ListItem>...</ListItem>
             </Appear>
           </List>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
-          <Text size={6} textColor="secondary">Duplicate database and validation logic across the system</Text>
+          <Text size={6} textColor="secondary">Authorization logic all over the place!</Text>
         </Slide>
         <Slide>
           <Text size={6} textColor="secondary">Direct effects</Text>
@@ -232,17 +226,11 @@ export default class Presentation extends React.Component {
           <Appear fid="1">
             <ListItem>Logic spread around independent GraphQL resolvers: Hard to keep in sync.</ListItem>
           </Appear>
-          <Appear fid="2">
-            <ListItem>Changes to the DB structure means changes in many different parts of the code.</ListItem>
-          </Appear>
           <Appear fid="3">
             <ListItem>Testing difficult.</ListItem>
           </Appear>
           <Appear fid="4">
             <ListItem>Hard to maintain.</ListItem>
-          </Appear>
-          <Appear fid="5">
-            <ListItem>Less developer overview.</ListItem>
           </Appear>
           </List>
         </Slide>
@@ -295,7 +283,7 @@ export default class Presentation extends React.Component {
           <Text>Before the split</Text>
           <CodePane
             lang="javascript"
-            source={require("raw-loader!../assets/code/business_logic/query_initial.example")}
+            source={require("raw-loader!../assets/code/business_logic/query_initial_authorization.example")}
             margin="20px auto"
             textSize="0.5em"
           />
@@ -327,16 +315,7 @@ export default class Presentation extends React.Component {
           />
         </Slide>
         <Slide>
-          <Text>Before the split</Text>
-          <CodePane
-            lang="javascript"
-            source={require("raw-loader!../assets/code/business_logic/mutation_initial.example")}
-            margin="20px auto"
-            textSize="0.5em"
-          />
-        </Slide>
-        <Slide>
-          <Text>Implementation in GraphQL</Text>
+          <Text>Map directly to Logic!</Text>
           <CodePane
             lang="javascript"
             source={require("raw-loader!../assets/code/business_logic/mutation_simple.example")}
@@ -345,7 +324,7 @@ export default class Presentation extends React.Component {
           />
         </Slide>
         <Slide transitionDuration={0}>
-          <Text>Single source of truth DB.</Text>
+          <Text>Single source of truth for authorization.</Text>
           <CodePane
             lang="javascript"
             source={require("raw-loader!../assets/code/business_logic/logic_mutation.example")}
@@ -353,34 +332,9 @@ export default class Presentation extends React.Component {
             textSize="0.5em"
           />
         </Slide>
-        {
-        // <Slide>
-        //   <Text>Create mutation</Text>
-        //   <CodePane
-        //     source={require("raw-loader!../assets/code/business_logic/joke_create_mutation.example")}
-        //     margin="20px auto"
-        //     textSize="0.5em"
-        //   />
-        // </Slide>
-        // <Slide>
-        //   <Text>GraphQL implementation</Text>
-        //   <CodePane
-        //     lang="js"
-        //     source={require("raw-loader!../assets/code/business_logic/mutation_create_simple.example")}
-        //     margin="20px auto"
-        //     textSize="0.5em"
-        //   />
-        // </Slide>
-        //
-      }
-        <Slide>
-          <Text>Single source of truth for validation.</Text>
-          <CodePane
-            lang="javascript"
-            source={require("raw-loader!../assets/code/business_logic/logic_final.example")}
-            margin="20px auto"
-            textSize="0.5em"
-          />
+        <Slide transition={["fade"]} bgColor="primary">
+          <Image src={images.businessLogic} />
+          <Cite>graphql.org</Cite>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
           <Text size={6} textColor="secondary">Benefits</Text>
