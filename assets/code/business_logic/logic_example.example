@@ -1,14 +1,16 @@
+const areYouOwner = (viewer: User, data) => {
+  return viewer.id === data.creator;
+}
+
 class Joke {
 
-  static async gen(id: string): Promise<?Joke> {
+  static async gen(viewer: User, id: string): Promise<?Joke> {
     const data = await db.joke.findById(id);
-    return data ? new Joke(data) : null;
+    if (data == null) return null;
+    const canSee = areYouOwner(viewer, data);
+    return canSee ? new Joke(data) : null;
   }
-
-  id: string;
-  text: string;
-  funnyLevel: number;
-
+  
   constructor(data: Object) {
     this.id = String(data.id);
     this.text = data.text;

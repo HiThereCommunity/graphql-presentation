@@ -8,6 +8,6 @@ const query = {
         type: new GraphQLNonNull(GraphQLID)
       }
     },
-    resolve: (root, args): Promise<?Joke> => Joke.gen(args.id)
+    resolve: (root, args, context) => Joke.gen(context.viewer, args.id)
   }
 }
