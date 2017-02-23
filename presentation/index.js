@@ -218,7 +218,7 @@ export default class Presentation extends React.Component {
           </List>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
-          <Text size={6} textColor="secondary">Authorization logic all over the place!</Text>
+          <Text size={6} textColor="secondary">Authorization/Database logic all over the place!</Text>
         </Slide>
         <Slide>
           <Text size={6} textColor="secondary">Direct effects</Text>
@@ -315,7 +315,7 @@ export default class Presentation extends React.Component {
           />
         </Slide>
         <Slide>
-          <Text>Map directly to Logic!</Text>
+        <Text>GraphQL</Text>
           <CodePane
             lang="javascript"
             source={require("raw-loader!../assets/code/business_logic/mutation_simple.example")}
@@ -323,11 +323,11 @@ export default class Presentation extends React.Component {
             textSize="0.5em"
           />
         </Slide>
-        <Slide transitionDuration={0}>
-          <Text>Single source of truth for authorization.</Text>
+        <Slide>
+        <Text>Single source of truth for authorization</Text>
           <CodePane
             lang="javascript"
-            source={require("raw-loader!../assets/code/business_logic/logic_mutation.example")}
+            source={require("raw-loader!../assets/code/business_logic/mutation_simple_2.example")}
             margin="20px auto"
             textSize="0.5em"
           />
