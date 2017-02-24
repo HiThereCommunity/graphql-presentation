@@ -131,7 +131,7 @@ export default class Presentation extends React.Component {
           <CodePane
             lang="javascript"
             source={require(
-              "raw-loader!../assets/code/business_logic/query_initial.example"
+              "raw-loader!../assets/code/business_logic/query_resolver.example"
             )}
             margin="20px auto"
             textSize="0.5em"
@@ -142,7 +142,7 @@ export default class Presentation extends React.Component {
           <CodePane
             lang="javascript"
             source={require(
-              "raw-loader!../assets/code/business_logic/query_initial_authorization.example"
+              "raw-loader!../assets/code/business_logic/query_resolver_authorization.example"
             )}
             margin="20px auto"
             textSize="0.5em"
@@ -153,7 +153,7 @@ export default class Presentation extends React.Component {
           <CodePane
             lang="javascript"
             source={require(
-              "raw-loader!../assets/code/business_logic/resolver_class_initial.example"
+              "raw-loader!../assets/code/business_logic/joke_object.example"
             )}
             margin="20px auto"
             textSize="0.5em"
@@ -171,7 +171,7 @@ export default class Presentation extends React.Component {
           <CodePane
             lang="javascript"
             source={require(
-              "raw-loader!../assets/code/business_logic/joke_response.example"
+              "raw-loader!../assets/code/business_logic/joke_query_response.example"
             )}
             margin="20px auto"
             textSize="0.5em"
@@ -181,7 +181,7 @@ export default class Presentation extends React.Component {
           <Text>Update joke mutation</Text>
           <CodePane
             source={require(
-              "raw-loader!../assets/code/business_logic/joke_update_mutation.example"
+              "raw-loader!../assets/code/business_logic/joke_mutation.example"
             )}
             margin="20px auto"
             textSize="0.5em"
@@ -192,7 +192,7 @@ export default class Presentation extends React.Component {
           <CodePane
             lang="javascript"
             source={require(
-              "raw-loader!../assets/code/business_logic/mutation_initial_1.example"
+              "raw-loader!../assets/code/business_logic/mutation_resolver_1.example"
             )}
             margin="20px auto"
             textSize="0.5em"
@@ -203,7 +203,7 @@ export default class Presentation extends React.Component {
           <CodePane
             lang="javascript"
             source={require(
-              "raw-loader!../assets/code/business_logic/mutation_initial.example"
+              "raw-loader!../assets/code/business_logic/mutation_resolver_2.example"
             )}
             margin="20px auto"
             textSize="0.5em"
@@ -213,7 +213,7 @@ export default class Presentation extends React.Component {
           <Text>Result</Text>
           <CodePane
             source={require(
-              "raw-loader!../assets/code/business_logic/joke_update_mutation.example"
+              "raw-loader!../assets/code/business_logic/joke_mutation.example"
             )}
             margin="20px auto"
             textSize="0.5em"
@@ -221,7 +221,7 @@ export default class Presentation extends React.Component {
           <CodePane
             lang="javascript"
             source={require(
-              "raw-loader!../assets/code/business_logic/mutation_response.example"
+              "raw-loader!../assets/code/business_logic/joke_mutation_response.example"
             )}
             margin="20px auto"
             textSize="0.5em"
@@ -325,7 +325,7 @@ export default class Presentation extends React.Component {
           <CodePane
             lang="javascript"
             source={require(
-              "raw-loader!../assets/code/business_logic/query_initial_authorization.example"
+              "raw-loader!../assets/code/business_logic/query_resolver_authorization.example"
             )}
             margin="20px auto"
             textSize="0.5em"
@@ -336,7 +336,7 @@ export default class Presentation extends React.Component {
           <CodePane
             lang="javascript"
             source={require(
-              "raw-loader!../assets/code/business_logic/query_simple.example"
+              "raw-loader!../assets/code/business_logic/query_logic.example"
             )}
             margin="20px auto"
             textSize="0.5em"
@@ -347,7 +347,7 @@ export default class Presentation extends React.Component {
           <CodePane
             lang="javascript"
             source={require(
-              "raw-loader!../assets/code/business_logic/logic_example.example"
+              "raw-loader!../assets/code/business_logic/business_logic.example"
             )}
             margin="20px auto"
             textSize="0.5em"
@@ -357,7 +357,7 @@ export default class Presentation extends React.Component {
           <Text>Example 2: Mutation to update a joke</Text>
           <CodePane
             source={require(
-              "raw-loader!../assets/code/business_logic/joke_update_mutation.example"
+              "raw-loader!../assets/code/business_logic/joke_mutation.example"
             )}
             margin="20px auto"
             textSize="0.5em"
@@ -368,7 +368,7 @@ export default class Presentation extends React.Component {
           <CodePane
             lang="javascript"
             source={require(
-              "raw-loader!../assets/code/business_logic/mutation_simple.example"
+              "raw-loader!../assets/code/business_logic/mutation_logic_1.example"
             )}
             margin="20px auto"
             textSize="0.5em"
@@ -379,7 +379,7 @@ export default class Presentation extends React.Component {
           <CodePane
             lang="javascript"
             source={require(
-              "raw-loader!../assets/code/business_logic/mutation_simple_2.example"
+              "raw-loader!../assets/code/business_logic/mutation_logic_2.example"
             )}
             margin="20px auto"
             textSize="0.5em"
