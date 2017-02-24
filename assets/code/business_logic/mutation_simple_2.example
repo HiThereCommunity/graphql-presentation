@@ -1,3 +1,5 @@
+import Joke from "../logic";
+
 resolve: (root, args, context) => {
   /* Authorization */
   const joke = Joke.gen(context.viewer, args.jokeId);

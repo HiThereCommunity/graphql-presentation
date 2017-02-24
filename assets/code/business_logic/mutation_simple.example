@@ -1,5 +1,3 @@
-import Joke from "../logic";
-
 const mutation = {
     type: new GraphQLNonNull(GraphQLJoke),
     description: "Update a joke.",
