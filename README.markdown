@@ -1,14 +1,19 @@
-# Spectacle Boilerplate
+# GraphQL Presentation
 
-## Reference
+Presentation containing the lessons learned from implementing a GraphQL API.
 
-The Spectacle core API is available at [https://github.com/FormidableLabs/spectacle/blob/master/README.markdown](https://github.com/FormidableLabs/spectacle/blob/master/README.markdown).
+This presentation highlights two lessons:
 
-## Development
+1. **Separation of Concerns:** How should you structure your code to create a maintainable GraphQL server.
+2. **Relay compliant schema:** Create a Relay compliant schema to benefit from all the advantages that it brings.
 
-After downloading the boilerplate, your first order of business is to open terminal and run `yarn`. (or `npm install` if you're about that life)
+## Getting Started
 
-Next, run `rm -R .git` to remove the existing version control.
+Install the dependencies by running the command:
+
+```sh
+yarn
+```
 
 Then, to start up the local server, run `npm start`
 
