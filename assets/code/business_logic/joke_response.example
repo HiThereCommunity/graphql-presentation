@@ -1,5 +1,5 @@
 {
-  joke: {
+  "joke": {
     "id": "1",
     "text": "What is the key difference between snowmen and snowwomen? Snowballs.",
     "funnyLevel": 0

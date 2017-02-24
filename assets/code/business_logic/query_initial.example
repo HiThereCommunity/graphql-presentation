@@ -6,9 +6,8 @@ const query = {
         type: new GraphQLNonNull(GraphQLID)
       }
     },
-    resolve: async (root, args) {
-      const data = await db.joke.findById(id);
-      return data;
+    resolve: (root, args) {
+      return db.joke.findById(args.id);
     }
   }
 }

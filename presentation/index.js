@@ -60,9 +60,9 @@ export default class Presentation extends React.Component {
           </Heading>
         </Slide>
         <Slide transition={["fade"]} bgColor="tertiary">
-          <Heading size={6} textColor="primary" caps>Dirk-Jan</Heading>
+          <Heading size={6} textColor="primary">Dirk-Jan @excite-engineer</Heading>
           <Text size={4} margin={30} textColor="secondary">Dirk is a Software Engineer with a focus on Javascript who gets (way too) excited about writing stable and well tested code. GraphQL fan.</Text>
-          <Heading size={6} textColor="primary" caps>Florentijn</Heading>
+          <Heading size={6} textColor="primary">Florentijn @Mr_Blue_Sql</Heading>
           <Text size={4} margin={30} textColor="secondary">GraphQL enthusiast. Focusing on Javascript and realizing highly available, easy to maintain solutions on AWS. I like giving high fives.</Text>
         </Slide>
         <Slide transition={["fade"]} bgColor="tertiary">
@@ -73,7 +73,6 @@ export default class Presentation extends React.Component {
             <Text size={6} textColor="secondary">Agenda</Text>
             <List>
               <ListItem>What is GraphQL?</ListItem>
-              <ListItem>Why GraphQL?</ListItem>
               <ListItem>Lessons Learned from implementing a GraphQL API</ListItem>
             </List>
         </Slide>
@@ -84,6 +83,26 @@ export default class Presentation extends React.Component {
           <Appear fid="2">
             <Text>A query language for your API</Text>
           </Appear>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={6} textColor="secondary">Properties</Heading>
+          <List>
+          <Appear fid="1">
+            <ListItem>Client controls data, not the server</ListItem>
+          </Appear>
+          <Appear fid="1">
+            <ListItem>Multiple resources in a single request</ListItem>
+          </Appear>
+          <Appear fid="1">
+            <ListItem>Documentation is awesome</ListItem>
+          </Appear>
+          <Appear fid="1">
+            <ListItem>Type system</ListItem>
+          </Appear>
+          <Appear fid="1">
+            <ListItem>Developer tools: GraphiQL</ListItem>
+          </Appear>
+          </List>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
             <Text size={6} textColor="secondary">GraphQL Demo</Text>
@@ -110,6 +129,15 @@ export default class Presentation extends React.Component {
           />
         </Slide>
         <Slide>
+          <Text>Authorization: Joke can only be retrieved by creator</Text>
+          <CodePane
+            lang="javascript"
+            source={require("raw-loader!../assets/code/business_logic/query_initial_authorization.example")}
+            margin="20px auto"
+            textSize="0.5em"
+          />
+        </Slide>
+        <Slide>
           <Text>Implement the Joke object type.</Text>
           <CodePane
             lang="javascript"
@@ -120,6 +148,11 @@ export default class Presentation extends React.Component {
         </Slide>
         <Slide>
           <Text>Result</Text>
+          <CodePane
+            source={require("raw-loader!../assets/code/business_logic/joke_query.example")}
+            margin="20px auto"
+            textSize="0.5em"
+          />
           <CodePane
             lang="javascript"
             source={require("raw-loader!../assets/code/business_logic/joke_response.example")}
@@ -136,7 +169,16 @@ export default class Presentation extends React.Component {
           />
         </Slide>
         <Slide>
-          <Text>Duplicate database logic</Text>
+          <Text>Implementation in GraphQL</Text>
+          <CodePane
+            lang="javascript"
+            source={require("raw-loader!../assets/code/business_logic/mutation_initial_1.example")}
+            margin="20px auto"
+            textSize="0.5em"
+          />
+        </Slide>
+        <Slide>
+          <Text>Duplicate authorization logic</Text>
           <CodePane
             lang="javascript"
             source={require("raw-loader!../assets/code/business_logic/mutation_initial.example")}
@@ -145,21 +187,18 @@ export default class Presentation extends React.Component {
           />
         </Slide>
         <Slide>
-          <Text>Create joke mutation</Text>
-          <CodePane
-            source={require("raw-loader!../assets/code/business_logic/joke_create_mutation.example")}
-            margin="20px auto"
-            textSize="0.5em"
-          />
-        </Slide>
-        <Slide>
-          <Text>Duplicate validation logic</Text>
-          <CodePane
-            lang="javascript"
-            source={require("raw-loader!../assets/code/business_logic/mutation_create_initial.example")}
-            margin="20px auto"
-            textSize="0.5em"
-          />
+          <Text>Result</Text>
+         <CodePane
+           source={require("raw-loader!../assets/code/business_logic/joke_update_mutation.example")}
+           margin="20px auto"
+           textSize="0.5em"
+         />
+         <CodePane
+           lang="javascript"
+           source={require("raw-loader!../assets/code/business_logic/mutation_response.example")}
+           margin="20px auto"
+           textSize="0.5em"
+         />
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
           <Text size={6} textColor="secondary">Building out the schema</Text>
@@ -170,31 +209,28 @@ export default class Presentation extends React.Component {
             <Appear fid="2">
               <ListItem>Delete a joke</ListItem>
             </Appear>
+            <Appear fid="2">
+              <ListItem>Create a joke</ListItem>
+            </Appear>
             <Appear fid="3">
               <ListItem>...</ListItem>
             </Appear>
           </List>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
-          <Text size={6} textColor="secondary">Duplicate database and validation logic across the system</Text>
+          <Text size={6} textColor="secondary">Authorization/Database logic all over the place!</Text>
         </Slide>
         <Slide>
           <Text size={6} textColor="secondary">Direct effects</Text>
           <List textColor="tertiary">
           <Appear fid="1">
-            <ListItem>Logic spread around independent graphQL resolvers: Hard to keep in sync.</ListItem>
-          </Appear>
-          <Appear fid="2">
-            <ListItem>Changes to the DB structure means changes in many different parts of the code.</ListItem>
+            <ListItem>Logic spread around independent GraphQL resolvers: Hard to keep in sync.</ListItem>
           </Appear>
           <Appear fid="3">
             <ListItem>Testing difficult.</ListItem>
           </Appear>
           <Appear fid="4">
             <ListItem>Hard to maintain.</ListItem>
-          </Appear>
-          <Appear fid="5">
-            <ListItem>Less developer overview.</ListItem>
           </Appear>
           </List>
         </Slide>
@@ -247,7 +283,7 @@ export default class Presentation extends React.Component {
           <Text>Before the split</Text>
           <CodePane
             lang="javascript"
-            source={require("raw-loader!../assets/code/business_logic/query_initial.example")}
+            source={require("raw-loader!../assets/code/business_logic/query_initial_authorization.example")}
             margin="20px auto"
             textSize="0.5em"
           />
@@ -279,7 +315,7 @@ export default class Presentation extends React.Component {
           />
         </Slide>
         <Slide>
-          <Text>Implementation in GraphQL</Text>
+        <Text>GraphQL</Text>
           <CodePane
             lang="javascript"
             source={require("raw-loader!../assets/code/business_logic/mutation_simple.example")}
@@ -288,39 +324,17 @@ export default class Presentation extends React.Component {
           />
         </Slide>
         <Slide>
-          <Text>Single source of truth DB.</Text>
+        <Text>Single source of truth for authorization</Text>
           <CodePane
             lang="javascript"
-            source={require("raw-loader!../assets/code/business_logic/logic_mutation.example")}
+            source={require("raw-loader!../assets/code/business_logic/mutation_simple_2.example")}
             margin="20px auto"
             textSize="0.5em"
           />
         </Slide>
-        <Slide>
-          <Text>Mutation response</Text>
-          <CodePane
-            lang="javascript"
-            source={require("raw-loader!../assets/code/business_logic/mutation_response.example")}
-            margin="20px auto"
-            textSize="0.5em"
-          />
-        </Slide>
-        <Slide>
-          <Text>Create mutation</Text>
-          <CodePane
-            source={require("raw-loader!../assets/code/business_logic/joke_create_mutation.example")}
-            margin="20px auto"
-            textSize="0.5em"
-          />
-        </Slide>
-        <Slide>
-          <Text>Single source of truth for validation.</Text>
-          <CodePane
-            lang="javascript"
-            source={require("raw-loader!../assets/code/business_logic/logic_final.example")}
-            margin="20px auto"
-            textSize="0.5em"
-          />
+        <Slide transition={["fade"]} bgColor="primary">
+          <Image src={images.businessLogic} />
+          <Cite>graphql.org</Cite>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
           <Text size={6} textColor="secondary">Benefits</Text>
@@ -329,21 +343,9 @@ export default class Presentation extends React.Component {
               <ListItem>Single source of truth for enforcing business rules.</ListItem>
             </Appear>
             <Appear fid="2">
-              <ListItem>Prevent logic to be spread around independent graphQL resolvers in system.</ListItem>
-            </Appear>
-            <Appear fid="3">
-              <ListItem>Connection to database encoded in logic, not GraphQL resolver.</ListItem>
-            </Appear>
-            <Appear fid="4">
-              <ListItem>Allows DB type to be changed easily.</ListItem>
-            </Appear>
-            <Appear fid="5">
-              <ListItem>Allows API protocol to be changed easily.</ListItem>
-            </Appear>
-            <Appear fid="6">
               <ListItem>Testability</ListItem>
             </Appear>
-            <Appear fid="7">
+            <Appear fid="3">
               <ListItem>Maintainable</ListItem>
             </Appear>
           </List>
@@ -361,7 +363,7 @@ export default class Presentation extends React.Component {
           </Appear>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
-          <Text size={6} textColor="secondary">Refetching</Text>
+          <Text size={6} textColor="secondary">Client Side Caching</Text>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
           <Text size={6} textColor="secondary">Joke Query</Text>
@@ -386,7 +388,7 @@ export default class Presentation extends React.Component {
           />
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
-          <Text size={6} textColor="secondary">The Result</Text>
+          <Text size={6} bold textColor="secondary">The Result</Text>
           <List textSize={4} textColor="secondary">
             <ListItem>Caching becomes simple</ListItem>
             <ListItem>Database assumptions opaque to client</ListItem>
@@ -394,6 +396,9 @@ export default class Presentation extends React.Component {
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
           <Text size={6} textColor="secondary">... and every object can easily be refetched</Text>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Text size={6} textColor="secondary">Refetching</Text>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
           <Text size={6} textColor="secondary">Retrieve resource using single query</Text>
@@ -417,7 +422,7 @@ export default class Presentation extends React.Component {
           />
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
-          <Text size={6} textColor="secondary">Why Pagination?</Text>
+          <Text size={6} bold textColor="secondary">Why Pagination?</Text>
           <List textSize={4} textColor="secondary">
             <ListItem>More fine-grained control</ListItem>
             <ListItem>Prevents app from being slow</ListItem>
@@ -437,7 +442,7 @@ export default class Presentation extends React.Component {
           <Text size={6} textColor="secondary">Opportunity to change to Relay if you wish</Text>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
-            <Text size={6} textColor="secondary">Overview</Text>
+            <Text size={6} bold textColor="secondary">Advantages Relay Compliant Schema</Text>
             <List textSize={4} textColor="secondary">
               <ListItem>Enforce globally unique id that is opaque</ListItem>
               <ListItem>Any resource that belongs to you can be retrieved using a single query</ListItem>
@@ -445,133 +450,25 @@ export default class Presentation extends React.Component {
               <ListItem>Opportunity to change to Relay if you wish</ListItem>
             </List>
         </Slide>
-        <Slide transition={["fade"]} bgColor="tertiary">
-          <Heading size={6} textColor="primary" caps>Lesson 3</Heading>
-          <Text size={6} textColor="secondary">Error Handling</Text>
-        </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-          <Text size={6} textColor="secondary">Production vs Development</Text>
-        </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-          <Text size={6} textColor="secondary">Undesired Production GraphQL Error Response</Text>
-          <CodePane
-            lang="javascript"
-            source={require("raw-loader!../assets/code/errorHandling/devGraphQLResponse.example")}
-            margin="20px auto"
-            textSize="0.5em"
-          />
-        </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-          <Text size={6} textColor="secondary">Updated GraphQL Error Response</Text>
-          <CodePane
-            lang="javascript"
-            source={require("raw-loader!../assets/code/errorHandling/prodGraphQLResponse.example")}
-            margin="20px auto"
-            textSize="0.5em"
-          />
-        </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-          <Text size={6} textColor="secondary">The Need for Distinct Error Types</Text>
-        </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-          <Text size={6} textColor="secondary">User Errors vs Internal Errors</Text>
-          <CodePane
-            lang="javascript"
-            source={require("raw-loader!../assets/code/errorHandling/userVersusInternalError.example")}
-            margin="20px auto"
-            textSize="0.6em"
-          />
-        </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-            <Text size={6} textColor="secondary">Four Error Types</Text>
-        </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-          <Text size={6} textColor="secondary">1. Syntax / Type Errors</Text>
-          <CodePane
-            lang="javascript"
-            source={require("raw-loader!../assets/code/errorHandling/syntaxGraphQLError.example")}
-            margin="20px auto"
-            textSize="0.5em"
-          />
-        </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-          <Text size={6} textColor="secondary">2. Runtime Errors</Text>
-          <CodePane
-            lang="javascript"
-            source={require("raw-loader!../assets/code/errorHandling/runTimeError.example")}
-            margin="20px auto"
-            textSize="0.5em"
-          />
-        </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-          <Text size={6} textColor="secondary">3. User Errors that dont need to be parsed by the client</Text>
-        </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-          <Text size={6} textColor="secondary">Introduce Client Error Class</Text>
-        </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-          <Text size={5} textColor="secondary">Client Error Usage</Text>
-          <CodePane
-            lang="javascript"
-            source={require("raw-loader!../assets/code/errorHandling/userErrorSolution.example")}
-            margin="20px auto"
-            textSize="0.5em"
-          />
-        </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-          <Text size={5} textColor="secondary">Client Error Response</Text>
-          <CodePane
-            lang="javascript"
-            source={require("raw-loader!../assets/code/errorHandling/errorFormatterOutput.example")}
-            margin="20px auto"
-            textSize="0.5em"
-          />
-        </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-          <Text size={6} textColor="secondary">4. User Errors that need to be parsed by the client</Text>
-        </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-          <Text size={5} textColor="secondary">Examples</Text>
-          <List textSize={4} textColor="secondary">
-            <ListItem>Duplicate jokes</ListItem>
-            <ListItem>Usage of swearwords</ListItem>
-          </List>
-        </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-          <Text size={5} textColor="secondary">Solution: Add fields</Text>
-          <CodePane
-            lang="javascript"
-            source={require("raw-loader!../assets/code/errorHandling/userInputValidationError.example")}
-            margin="20px auto"
-            textSize="0.5em"
-          />
-        </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-            <Text size={6} textColor="secondary">Lessons</Text>
-            <List textSize={4} textColor="secondary">
-              <ListItem>Dont expose stack traces in production</ListItem>
-              <ListItem>Hide internal server errors from client</ListItem>
-              <ListItem>Define custom ClientError class for error messages that you would like to expose to client</ListItem>
-              <ListItem>Include data that clients need to parse inside payload</ListItem>
-            </List>
-        </Slide>
         <Slide transition={["fade"]} bgColor="primary">
             <Text size={6} textColor="secondary">To Sum Up</Text>
             <List textSize={4} textColor="secondary">
               <ListItem>Lesson 1: API, Business Logic, Persistence Layer</ListItem>
               <ListItem>Lesson 2: Relay compliant schema</ListItem>
-              <ListItem>Lesson 3: Error Handling</ListItem>
             </List>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
-            <Text bold>Last tip: Caching & Batching using DataLoader</Text>
-            <Text>{"https://github.com/HiThereCommunity/graphql-dataloader-example"}</Text>
-        </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-            <Text size={6} textColor="secondary">References & Recommendations</Text>
-            <List textSize={4} textColor="tertiary">
-              <ListItem>React-Europe 2016 talk Dan Schafer</ListItem>
+            <Text size={6} textColor="secondary">More Lessons</Text>
+            <List textSize={4} textColor="secondary">
+              <ListItem>Authentication</ListItem>
+              <ListItem>Caching & Batching</ListItem>
+              <ListItem>Error Handling</ListItem>
             </List>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="tertiary">
+          <Heading size={6} textColor="primary">Reach us on twitter!</Heading>
+          <Text size={6} textColor="primary">@excite-engineer</Text>
+          <Text size={6} textColor="primary">@Mr_Blue_Sql</Text>
         </Slide>
         <Slide transition={["fade"]} bgColor="tertiary">
           <Heading size={6} textColor="primary">Thanks!</Heading>

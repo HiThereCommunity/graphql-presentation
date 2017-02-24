@@ -10,7 +10,7 @@ const GraphQLJoke = new GraphQLObjectType({
       resolve: (data) => data.text
     },
     funnyLevel: {
-      type: new GraphQLNonNull(GraphQLFunnyLevel),
+      type: new GraphQLNonNull(GraphQLInt),
       resolve: (data) => data.funnyLevel
     }
   }

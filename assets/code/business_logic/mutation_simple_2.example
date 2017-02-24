@@ -1,0 +1,11 @@
+import Joke from "../logic";
+
+resolve: (root, args, context) => {
+  /* Authorization */
+  const joke = Joke.gen(context.viewer, args.jokeId);
+  if (!joke) throw new Error('No joke found for the id');
+
+  /* Performs validation and updates DB */
+  joke.setFunnyLevel(args.funnyLevel);
+  return joke;
+}

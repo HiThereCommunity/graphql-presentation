@@ -1,19 +1,15 @@
-const mutation = {
-    type: new GraphQLNonNull(GraphQLJoke),
-    description: "Update a joke.",
-    args: {
-        jokeId: { type: new GraphQLNonNull(GraphQLID) },
-        funnyLevel: { type: new GraphQLNonNull(GraphQLInt) }
-    },
-    resolve: async (root, args) => {
-      if (args.funnyLevel < 0 || args.funnyLevel > 5)
-        throw new Error('Invalid funny level.');
+resolve: async (root, args, context) => {
+  /* validation */
+  if (args.funnyLevel < 0 || args.funnyLevel > 5)
+    throw new Error('Invalid funny level.');
 
-      const data = await db.joke.findById(id);
-      if (data == null) throw new Error('No joke exists for the id');
+  const data = await db.joke.findById(args.jokeId);
+  if (data == null) throw new Error('No joke exists for the id');
+  /* authorization */
+  if (data.creator !== context.viewer.id) throw new Error('No joke exists for the id')
 
-      data.funnyLevel = funnyLevel;
-      async data.save();
-      return data;
-    }
+  /* Perform update */
+  data.funnyLevel = funnyLevel;
+  async data.save();
+  return data;
 }

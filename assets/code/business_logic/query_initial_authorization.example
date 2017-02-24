@@ -1,0 +1,18 @@
+const query = {
+  joke: {
+    type: GraphQLJoke,
+    args: {
+      id: {
+        type: new GraphQLNonNull(GraphQLID)
+      }
+    },
+    resolve: async (root, args, context) {
+      const data = await db.joke.findById(args.id);
+      if (data == null) return null;
+
+      /* Authorization */
+      const canSee = data.creator === context.viewer.id;
+      return canSee ? data : null;
+    }
+  }
+}
